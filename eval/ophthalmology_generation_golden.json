@@ -1,0 +1,62 @@
+{
+  "description": "Generation evaluation set for comparing vanilla LLM answers against RAG-enhanced answers in ophthalmology-domain literature QA.",
+  "version": "1.0",
+  "test_cases": [
+    {
+      "query": "为什么说眼科 AI 论文不能只看离线 AUC，还要看真实临床工作流验证？",
+      "expected_sources": [
+        "通过视网膜成像进行多疾病检测的人工智能框架 自然医学.pdf",
+        "汇报6.pdf",
+        "Liu 等 - 2026 - OBUSight Clinically Aligned Generative AI for Ophthalmic Ultrasound Interpretation and Diagnosis.pdf"
+      ],
+      "reference_answer": "因为离线 AUC 只能说明模型在固定测试集上的区分能力，不能证明它能在真实诊所流程中稳定运行。真实临床工作流、前瞻性或沉默试验、医生评分、患者接受度和效率提升等证据，才能说明系统具有临床落地潜力。"
+    },
+    {
+      "query": "眼科报告生成为什么容易出现幻觉？有哪些方法可以提高报告可信度？",
+      "expected_sources": [
+        "Chen 等 - 2025 - A deep learning based automatic report generator for retinal optical coherence tomography images.pdf",
+        "Jin 等 - 2026 - Grounded report generation for enhancing ophthalmic ultrasound interpretation using Vision-Language.pdf",
+        "Liu 等 - 2026 - OBUSight Clinically Aligned Generative AI for Ophthalmic Ultrasound Interpretation and Diagnosis.pdf",
+        "汇报4.pdf",
+        "汇报5.pdf"
+      ],
+      "reference_answer": "眼科报告生成容易幻觉，是因为生成模型可能根据语言先验补全不存在的病灶或临床描述。提高可信度的方法包括引入病灶 grounding 或分割定位、使用专家评分和临床有效性指标、结合疾病预测任务、多中心验证，以及对生成报告进行临床可接受性评估。"
+    },
+    {
+      "query": "为什么眼科诊断系统需要领域基础模型，而不是直接用普通 ImageNet 预训练模型？",
+      "expected_sources": [
+        "Zhou 等 - 2023 - A foundation model for generalizable disease detection from retinal images.pdf",
+        "通过视网膜成像进行多疾病检测的人工智能框架 自然医学.pdf",
+        "汇报6.pdf"
+      ],
+      "reference_answer": "RETFound 通过大规模视网膜图像自监督预训练学习通用眼科表征，可提升下游多疾病检测、跨数据集迁移和小样本任务的泛化能力。在多疾病检测系统中，它也可以作为强视觉编码器，与其他架构形成互补。"
+    },
+    {
+      "query": "如果某些眼病类别样本极少，除了继续收集数据，还可以怎样利用生成式模型改善训练？",
+      "expected_sources": [
+        "Chen 等 - 2026 - Boosting foundation models for rare eye disease diagnosis via a multimodal text-to-image generative.pdf",
+        "汇报4.pdf"
+      ],
+      "reference_answer": "罕见眼病样本少会导致模型难以学习稳定特征，类别不平衡也会影响诊断性能。text-to-image 生成式数据增强可以根据文本条件合成罕见病图像，扩充训练样本，从而提升基础模型在稀有类别上的表现。"
+    },
+    {
+      "query": "如果要设计一个眼科 AI demo，应该如何把英文论文原文和中文研究汇报结合起来？",
+      "expected_sources": [
+        "汇报4.pdf",
+        "汇报5.pdf",
+        "汇报6.pdf"
+      ],
+      "reference_answer": "英文论文原文提供方法细节、实验设计和原始证据，中文研究汇报记录阶段性理解、横向对比和项目启示。两者结合后，系统既能追溯论文依据，也能回答工程设计层面的问题，例如多 B-scan 融合、专业编码器选择、报告标准化、幻觉控制和临床验证路径。"
+    },
+    {
+      "query": "眼科多模态模型、报告生成模型和真实临床验证之间是什么关系？",
+      "expected_sources": [
+        "Shi 等 - 2025 - A multimodal visual–language foundation model for computational ophthalmology.pdf",
+        "Chen 等 - 2025 - A deep learning based automatic report generator for retinal optical coherence tomography images.pdf",
+        "Liu 等 - 2026 - OBUSight Clinically Aligned Generative AI for Ophthalmic Ultrasound Interpretation and Diagnosis.pdf",
+        "通过视网膜成像进行多疾病检测的人工智能框架 自然医学.pdf"
+      ],
+      "reference_answer": "多模态模型负责把眼科图像和文本知识对齐，报告生成模型把视觉特征转化为临床语言，而真实临床验证用于证明这些模型不只是离线指标好，还能在医生工作流中提升诊断效率、报告质量或临床接受度。"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Raw documents and databases
+data/
+*.pdf
+*.docx
+*.db
+*.sqlite
+*.sqlite3
+*.parquet
+
+# Secrets and local configs
+.env
+.env.*
+config/
+*.key
+*secret*
+*api_key*
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+.vscode/

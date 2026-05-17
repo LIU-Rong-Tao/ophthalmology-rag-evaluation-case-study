@@ -1,0 +1,255 @@
+diff --git a/scripts/evaluate.py b/scripts/evaluate.py
+index fbeb74a..f6dc652 100644
+--- a/scripts/evaluate.py
++++ b/scripts/evaluate.py
+@@ -50,6 +50,12 @@ def parse_args() -> argparse.Namespace:
+         default="tests/fixtures/golden_test_set.json",
+         help="Path to golden test set JSON file (default: tests/fixtures/golden_test_set.json)",
+     )
++    parser.add_argument(
++        "--config",
++        default=str(PROJECT_ROOT / "config" / "settings.yaml"),
++        help="Path to configuration file (default: config/settings.yaml)",
++    )
++
+     parser.add_argument(
+         "--collection",
+         default=None,
+@@ -61,6 +67,12 @@ def parse_args() -> argparse.Namespace:
+         default=10,
+         help="Number of chunks to retrieve per query (default: 10).",
+     )
++    parser.add_argument(
++        "--retrieval-mode",
++        choices=["hybrid", "dense", "sparse"],
++        default="hybrid",
++        help="Retrieval mode for ablation: hybrid, dense, or sparse.",
++    )
+     parser.add_argument(
+         "--json",
+         action="store_true",
+@@ -77,13 +89,17 @@ def parse_args() -> argparse.Namespace:
+ def main() -> int:
+     """Main entry point."""
+     args = parse_args()
++    status_stream = sys.stderr if args.json else sys.stdout
++
++    def status_print(*values, **kwargs):
++        print(*values, file=status_stream, **kwargs)
+ 
+     try:
+         from src.core.settings import load_settings
+         from src.libs.evaluator.evaluator_factory import EvaluatorFactory
+         from src.observability.evaluation.eval_runner import EvalRunner
+ 
+-        settings = load_settings()
++        settings = load_settings(args.config)
+     except Exception as exc:
+         print(f"❌ Configuration error: {exc}", file=sys.stderr)
+         return 2
+@@ -134,9 +150,18 @@ def main() -> int:
+                 dense_retriever=dense_retriever,
+                 sparse_retriever=sparse_retriever,
+             )
+-            print(f"✅ HybridSearch initialized for collection: {collection}")
++
++            if args.retrieval_mode == "dense":
++                hybrid_search.config.enable_sparse = False
++            elif args.retrieval_mode == "sparse":
++                hybrid_search.config.enable_dense = False
++
++            status_print(
++                f"✅ HybridSearch initialized for collection: {collection} "
++                f"(mode={args.retrieval_mode})"
++            )
+         except Exception as exc:
+-            print(f"⚠️  Failed to initialize search (running without retrieval): {exc}")
++            status_print(f"⚠️  Failed to initialize search (running without retrieval): {exc}")
+ 
+     # Create and run EvalRunner
+     runner = EvalRunner(
+@@ -146,9 +171,9 @@ def main() -> int:
+     )
+ 
+     try:
+-        print(f"\n🔍 Running evaluation with {evaluator_name}...")
+-        print(f"📄 Test set: {args.test_set}")
+-        print(f"🔢 Top-K: {args.top_k}\n")
++        status_print(f"\n🔍 Running evaluation with {evaluator_name}...")
++        status_print(f"📄 Test set: {args.test_set}")
++        status_print(f"🔢 Top-K: {args.top_k}\n")
+ 
+         report = runner.run(
+             test_set_path=args.test_set,
+@@ -159,15 +184,18 @@ def main() -> int:
+         print(f"❌ Evaluation failed: {exc}", file=sys.stderr)
+         return 1
+ 
++    # Output results
+     # Output results
+     if args.json:
+-        print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False))
++        try:
++            print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False))
++        except BrokenPipeError:
++            return 0
+     else:
+         _print_report(report)
+ 
+     return 0
+ 
+-
+ def _print_report(report) -> None:
+     """Print formatted evaluation report."""
+     print("=" * 60)
+diff --git a/src/libs/evaluator/custom_evaluator.py b/src/libs/evaluator/custom_evaluator.py
+index a6e9d26..16cb0f3 100644
+--- a/src/libs/evaluator/custom_evaluator.py
++++ b/src/libs/evaluator/custom_evaluator.py
+@@ -18,8 +18,10 @@ class CustomEvaluator(BaseEvaluator):
+     Supported id fields: id, chunk_id, document_id, doc_id.
+     """
+ 
+-    SUPPORTED_METRICS = {"hit_rate", "mrr"}
++    SUPPORTED_METRICS = {"hit_rate", "mrr", "source_hit_rate", "source_mrr"}
+     _ID_FIELDS = ("id", "chunk_id", "document_id", "doc_id")
++    _SOURCE_FIELDS = ("source_path", "source")
++
+ 
+     def __init__(
+         self,
+@@ -72,17 +74,30 @@ class CustomEvaluator(BaseEvaluator):
+         self.validate_retrieved_chunks(retrieved_chunks)
+ 
+         retrieved_ids = self._extract_ids(retrieved_chunks, label="retrieved_chunks")
++        retrieved_sources = self._extract_sources(retrieved_chunks)
+         ground_truth_ids = self._extract_ground_truth_ids(ground_truth)
++        ground_truth_sources = self._extract_ground_truth_sources(ground_truth)
+ 
+         results: Dict[str, float] = {}
+ 
+-        if "hit_rate" in self.metrics:
++        if "hit_rate" in self.metrics and ground_truth_ids:
+             results["hit_rate"] = self._compute_hit_rate(retrieved_ids, ground_truth_ids)
+-        if "mrr" in self.metrics:
++        if "mrr" in self.metrics and ground_truth_ids:
+             results["mrr"] = self._compute_mrr(retrieved_ids, ground_truth_ids)
++        if "source_hit_rate" in self.metrics and ground_truth_sources:
++            results["source_hit_rate"] = self._compute_hit_rate(
++                retrieved_sources,
++                ground_truth_sources,
++            )
++        if "source_mrr" in self.metrics and ground_truth_sources:
++            results["source_mrr"] = self._compute_mrr(
++                retrieved_sources,
++                ground_truth_sources,
++            )
+ 
+         return results
+ 
++
+     def _metrics_from_settings(self, settings: Any) -> List[str]:
+         """Extract metrics list from settings if available."""
+         if settings is None:
+@@ -117,6 +132,7 @@ class CustomEvaluator(BaseEvaluator):
+             if isinstance(item, str):
+                 ids.append(item)
+                 continue
++
+             if isinstance(item, dict):
+                 for field in self._ID_FIELDS:
+                     if field in item:
+@@ -128,17 +144,60 @@ class CustomEvaluator(BaseEvaluator):
+                         f"Expected one of {', '.join(self._ID_FIELDS)}"
+                     )
+                 continue
+-            if hasattr(item, "id"):
+-                ids.append(str(getattr(item, "id")))
+-                continue
+ 
+-            raise ValueError(
+-                f"Unable to extract id from {label}[{index}] of type "
+-                f"{type(item).__name__}"
+-            )
++            for field in self._ID_FIELDS:
++                if hasattr(item, field):
++                    ids.append(str(getattr(item, field)))
++                    break
++            else:
++                raise ValueError(
++                    f"Unable to extract id from {label}[{index}] of type "
++                    f"{type(item).__name__}"
++                )
+ 
+         return ids
+ 
++    def _extract_ground_truth_sources(self, ground_truth: Optional[Any]) -> List[str]:
++        """Extract expected source file names from ground truth."""
++        if ground_truth is None:
++            return []
++        if isinstance(ground_truth, dict):
++            sources = ground_truth.get("sources", [])
++            if isinstance(sources, list):
++                return [
++                    self._normalize_source_name(source)
++                    for source in sources
++                    if source
++                ]
++        return []
++
++    def _extract_sources(self, items: Iterable[Any]) -> List[str]:
++        """Extract source file names from retrieved chunks."""
++        sources: List[str] = []
++        for item in items:
++            source = None
++
++            if isinstance(item, dict):
++                metadata = item.get("metadata", {}) or {}
++                source = item.get("source_path") or item.get("source")
++                if not source and isinstance(metadata, dict):
++                    source = metadata.get("source_path") or metadata.get("source")
++            else:
++                metadata = getattr(item, "metadata", {}) or {}
++                if isinstance(metadata, dict):
++                    source = metadata.get("source_path") or metadata.get("source")
++
++            if source:
++                sources.append(self._normalize_source_name(source))
++
++        return sources
++
++    def _normalize_source_name(self, source: Any) -> str:
++        """Normalize absolute paths to stable file names."""
++        value = str(source).replace("\\", "/").rstrip("/")
++        return value.split("/")[-1]
++
++
+     def _compute_hit_rate(self, retrieved_ids: Sequence[str], ground_truth_ids: Sequence[str]) -> float:
+         """Compute hit rate (binary)."""
+         if not ground_truth_ids:
+diff --git a/src/observability/evaluation/eval_runner.py b/src/observability/evaluation/eval_runner.py
+index 769602c..b4b8791 100644
+--- a/src/observability/evaluation/eval_runner.py
++++ b/src/observability/evaluation/eval_runner.py
+@@ -285,12 +285,15 @@ class EvalRunner:
+             answer = self._generate_answer(test_case.query, retrieved_chunks)
+         qr.generated_answer = answer
+ 
+-        # Step 3: Build ground truth
+-        ground_truth = (
+-            {"ids": test_case.expected_chunk_ids}
+-            if test_case.expected_chunk_ids
+-            else None
+-        )
++        # Step 3: Build ground truth.
++        # Source-level labels are more stable than chunk IDs when chunking rules change.
++        ground_truth = None
++        if test_case.expected_chunk_ids or test_case.expected_sources:
++            ground_truth = {
++                "ids": test_case.expected_chunk_ids,
++                "sources": test_case.expected_sources,
++            }
++
+ 
+         # Step 4: Evaluate
+         try:

@@ -1,0 +1,106 @@
+{
+  "description": "Harder ophthalmology-domain retrieval golden set. Queries are paraphrased, cross-document, or method-oriented, with source-level labels for robust chunking ablations.",
+  "version": "1.0",
+  "test_cases": [
+    {
+      "query": "哪类眼科超声工作不只做病灶分类，而是把图像解释、报告生成、疾病预测和临床验证放在同一个框架里？",
+      "expected_sources": [
+        "Liu 等 - 2026 - OBUSight Clinically Aligned Generative AI for Ophthalmic Ultrasound Interpretation and Diagnosis.pdf",
+        "汇报5.pdf"
+      ],
+      "reference_answer": "相关工作将眼科 B 超图像解释从单纯分类推进到临床对齐的报告生成与辅助诊断，通常包含图像特征提取、语义对齐、报告生成、疾病预测，以及回顾性或前瞻性临床验证。"
+    },
+    {
+      "query": "如果要减少眼科超声报告里的幻觉，并让报告内容能对应到具体病灶区域，应该查哪类 grounding 或分割增强方法？",
+      "expected_sources": [
+        "Jin 等 - 2026 - Grounded report generation for enhancing ophthalmic ultrasound interpretation using Vision-Language.pdf",
+        "汇报5.pdf"
+      ],
+      "reference_answer": "应检索 grounded report generation 方向，即结合视觉语言模型与病灶定位或分割模块，使生成报告的描述能对应图像中的具体区域，从而提高可解释性并减少幻觉。"
+    },
+    {
+      "query": "哪项 OCT 报告生成研究更接近从多张 B-scan 提取特征再生成临床报告，而不是只输出分类标签？",
+      "expected_sources": [
+        "Chen 等 - 2025 - A deep learning based automatic report generator for retinal optical coherence tomography images.pdf",
+        "汇报5.pdf"
+      ],
+      "reference_answer": "OCT 自动报告生成工作从 OCT 或多 B-scan 图像中提取视觉特征，再通过生成模块输出临床报告，区别于仅做疾病分类。"
+    },
+    {
+      "query": "面对罕见眼病样本不足，哪些工作尝试用文本到图像生成或合成数据增强来提升基础模型诊断能力？",
+      "expected_sources": [
+        "Chen 等 - 2026 - Boosting foundation models for rare eye disease diagnosis via a multimodal text-to-image generative.pdf",
+        "汇报4.pdf"
+      ],
+      "reference_answer": "相关工作通过多模态 text-to-image 生成罕见眼病图像，扩充小样本类别数据，用于提升眼科基础模型在罕见病诊断上的鲁棒性。"
+    },
+    {
+      "query": "如果面试官问眼科基础模型为什么需要自监督预训练和跨数据集泛化，应该引用哪篇视网膜基础模型工作？",
+      "expected_sources": [
+        "Zhou 等 - 2023 - A foundation model for generalizable disease detection from retinal images.pdf"
+      ],
+      "reference_answer": "应引用视网膜图像基础模型相关工作，它通过自监督预训练学习通用眼底表征，并验证在多疾病检测和跨数据集迁移上的泛化价值。"
+    },
+    {
+      "query": "哪些眼科多模态基础模型把图像和临床文本对齐，用于计算眼科学中的识别、问答或报告理解？",
+      "expected_sources": [
+        "Shi 等 - 2025 - A multimodal visual–language foundation model for computational ophthalmology.pdf"
+      ],
+      "reference_answer": "眼科多模态视觉语言基础模型通过图像-文本对齐学习，使模型能够支持疾病识别、图文问答、报告理解和临床辅助推理。"
+    },
+    {
+      "query": "哪项视网膜多疾病检测工作最强调真实诊所流程，而不是只在离线测试集上报告 AUC？",
+      "expected_sources": [
+        "通过视网膜成像进行多疾病检测的人工智能框架 自然医学.pdf",
+        "汇报6.pdf"
+      ],
+      "reference_answer": "Reti-Pioneer 相关工作强调真实临床工作流、外部验证、沉默试验或临床试点，以及医生和患者接受度，而不仅是离线测试集指标。"
+    },
+    {
+      "query": "哪些证据能说明一个眼科 AI 系统真的有临床落地潜力，而不只是模型分数高？",
+      "expected_sources": [
+        "通过视网膜成像进行多疾病检测的人工智能框架 自然医学.pdf",
+        "Liu 等 - 2026 - OBUSight Clinically Aligned Generative AI for Ophthalmic Ultrasound Interpretation and Diagnosis.pdf",
+        "汇报6.pdf"
+      ],
+      "reference_answer": "临床落地潜力需要外部验证、真实或模拟临床工作流、前瞻性测试、医生评分、患者接受度、效率提升和诊断一致性等证据支撑。"
+    },
+    {
+      "query": "在一个视网膜多疾病检测系统里，为什么会同时使用窗口注意力模型、状态空间模型和眼科自监督基础模型做集成？",
+      "expected_sources": [
+        "通过视网膜成像进行多疾病检测的人工智能框架 自然医学.pdf",
+        "汇报6.pdf",
+        "Zhou 等 - 2023 - A foundation model for generalizable disease detection from retinal images.pdf"
+      ],
+      "reference_answer": "不同视觉编码器具有互补归纳偏置：窗口注意力适合局部-层级视觉建模，状态空间模型适合序列化视觉表征，眼科自监督基础模型提供领域预训练特征，集成可提升鲁棒性。"
+    },
+    {
+      "query": "哪些资料讨论了生成式医学报告的临床可接受性、专家评分、幻觉或可信度，而不是只看 BLEU/ROUGE？",
+      "expected_sources": [
+        "Chen 等 - 2025 - A deep learning based automatic report generator for retinal optical coherence tomography images.pdf",
+        "Jin 等 - 2026 - Grounded report generation for enhancing ophthalmic ultrasound interpretation using Vision-Language.pdf",
+        "Liu 等 - 2026 - OBUSight Clinically Aligned Generative AI for Ophthalmic Ultrasound Interpretation and Diagnosis.pdf",
+        "汇报4.pdf",
+        "汇报5.pdf"
+      ],
+      "reference_answer": "这些资料关注报告生成的临床可信度，包括专家评分、临床可接受性、病灶 grounding、报告幻觉、NLG 指标与临床有效性指标之间的差异。"
+    },
+    {
+      "query": "如果要把眼科论文阅读转化成自己的系统设计，哪些汇报总结了多 B-scan 融合、专业编码器、报告标准化和多任务训练的启示？",
+      "expected_sources": [
+        "汇报4.pdf",
+        "汇报5.pdf"
+      ],
+      "reference_answer": "汇报4和汇报5将论文阅读转化为系统设计启示，包括多 B-scan 融合、专业视觉编码器、LLM 报告预处理、报告标准化、多任务训练和幻觉控制。"
+    },
+    {
+      "query": "眼科 AI 从论文到工程 demo，为什么需要把英文原文论文和中文研究汇报同时纳入知识库？",
+      "expected_sources": [
+        "汇报4.pdf",
+        "汇报5.pdf",
+        "汇报6.pdf"
+      ],
+      "reference_answer": "英文论文提供原始方法和实验依据，中文研究汇报记录阶段性理解、项目启示和横向对比，两者结合能支持从论文证据到工程设计的可追溯推理。"
+    }
+  ]
+}

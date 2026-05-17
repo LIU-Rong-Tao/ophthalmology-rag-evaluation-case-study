@@ -1,0 +1,44 @@
+diff --git a/scripts/ingest.py b/scripts/ingest.py
+index 0d294db..14c1f36 100644
+--- a/scripts/ingest.py
++++ b/scripts/ingest.py
+@@ -188,10 +188,13 @@ def main() -> int:
+     """
+     args = parse_args()
+     
+-    # Setup logging level
++    # Setup logging level.
++    # Keep --verbose focused on project logs; third-party PDF parsers can emit huge DEBUG traces.
+     if args.verbose:
+         import logging
+-        logging.getLogger().setLevel(logging.DEBUG)
++        logging.getLogger("__main__").setLevel(logging.DEBUG)
++        logging.getLogger("src").setLevel(logging.DEBUG)
++
+     
+     print("[*] Modular RAG Ingestion Script")
+     print("=" * 60)
+diff --git a/src/observability/logger.py b/src/observability/logger.py
+index b7a75ad..36f4dc2 100644
+--- a/src/observability/logger.py
++++ b/src/observability/logger.py
+@@ -48,8 +48,17 @@ def get_logger(name: str = "modular-rag", log_level: Optional[str] = None) -> lo
+         stream=sys.stderr,
+     )
+ 
+-    # Suppress httpx logs (contains sensitive endpoint URLs)
+-    logging.getLogger("httpx").setLevel(logging.WARNING)
++    # Suppress noisy third-party logs; keep project logs readable in demos.
++    for noisy_logger in [
++        "httpx",
++        "jieba",
++        "pdfminer",
++        "pdfplumber",
++        "PIL",
++        "chromadb",
++    ]:
++        logging.getLogger(noisy_logger).setLevel(logging.WARNING)
++
+ 
+     return logging.getLogger(name)
+ 

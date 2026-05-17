@@ -1,0 +1,32 @@
+diff --git a/src/libs/splitter/recursive_splitter.py b/src/libs/splitter/recursive_splitter.py
+index f415cbf..c0f8c93 100644
+--- a/src/libs/splitter/recursive_splitter.py
++++ b/src/libs/splitter/recursive_splitter.py
+@@ -40,16 +40,22 @@ class RecursiveSplitter(BaseSplitter):
+     """
+     
+     DEFAULT_SEPARATORS = [
+-        "\n\n",  # Double newline (paragraphs)
+-        "\n",    # Single newline
+-        ". ",    # Sentence endings
++        "\n\n",  # Paragraphs / Markdown blocks
++        "\n",    # Lines
++        "。",    # Chinese sentence endings
++        "！",
++        "？",
++        "；",
++        "，",
++        ". ",    # English sentence endings
+         "! ",
+         "? ",
+         "; ",
+         ", ",
+-        " ",     # Spaces
+-        "",      # Characters
++        " ",     # English word boundary
++        "",      # Fallback to characters
+     ]
++
+     
+     def __init__(
+         self,

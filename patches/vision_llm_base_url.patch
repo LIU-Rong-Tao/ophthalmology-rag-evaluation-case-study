@@ -1,0 +1,17 @@
+diff --git a/src/libs/llm/openai_vision_llm.py b/src/libs/llm/openai_vision_llm.py
+index 3c3f20d..3cf01f6 100644
+--- a/src/libs/llm/openai_vision_llm.py
++++ b/src/libs/llm/openai_vision_llm.py
+@@ -121,8 +121,12 @@ class OpenAIVisionLLM(BaseVisionLLM):
+         
+         self._use_azure_auth = False
+         
++        vision_base_url = getattr(vision_settings, 'base_url', None) if vision_settings else None
++
+         if base_url:
+             self.base_url = base_url
++        elif vision_base_url:
++            self.base_url = vision_base_url
+         elif azure_endpoint:
+             # Azure-compatible mode
+             self.base_url = (
