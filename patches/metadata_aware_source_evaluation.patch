@@ -1,0 +1,219 @@
+diff --git a/src/libs/evaluator/custom_evaluator.py b/src/libs/evaluator/custom_evaluator.py
+index a6e9d26..ecf4cb3 100644
+--- a/src/libs/evaluator/custom_evaluator.py
++++ b/src/libs/evaluator/custom_evaluator.py
+@@ -18,8 +18,10 @@ class CustomEvaluator(BaseEvaluator):
+     Supported id fields: id, chunk_id, document_id, doc_id.
+     """
+ 
+-    SUPPORTED_METRICS = {"hit_rate", "mrr"}
++    SUPPORTED_METRICS = {"hit_rate", "mrr", "source_hit_rate", "source_mrr"}
+     _ID_FIELDS = ("id", "chunk_id", "document_id", "doc_id")
++    _SOURCE_FIELDS = ("source_path", "source")
++
+ 
+     def __init__(
+         self,
+@@ -72,17 +74,33 @@ class CustomEvaluator(BaseEvaluator):
+         self.validate_retrieved_chunks(retrieved_chunks)
+ 
+         retrieved_ids = self._extract_ids(retrieved_chunks, label="retrieved_chunks")
++        retrieved_sources = self._extract_sources(retrieved_chunks)
+         ground_truth_ids = self._extract_ground_truth_ids(ground_truth)
++        ground_truth_sources = self._extract_ground_truth_sources(ground_truth)
++        expected_metadata = self._extract_expected_metadata(ground_truth)
++        if expected_metadata:
++            ground_truth_sources.append(self._metadata_token(expected_metadata))
+ 
+         results: Dict[str, float] = {}
+ 
+-        if "hit_rate" in self.metrics:
++        if "hit_rate" in self.metrics and ground_truth_ids:
+             results["hit_rate"] = self._compute_hit_rate(retrieved_ids, ground_truth_ids)
+-        if "mrr" in self.metrics:
++        if "mrr" in self.metrics and ground_truth_ids:
+             results["mrr"] = self._compute_mrr(retrieved_ids, ground_truth_ids)
++        if "source_hit_rate" in self.metrics and ground_truth_sources:
++            results["source_hit_rate"] = self._compute_hit_rate(
++                retrieved_sources,
++                ground_truth_sources,
++            )
++        if "source_mrr" in self.metrics and ground_truth_sources:
++            results["source_mrr"] = self._compute_mrr(
++                retrieved_sources,
++                ground_truth_sources,
++            )
+ 
+         return results
+ 
++
+     def _metrics_from_settings(self, settings: Any) -> List[str]:
+         """Extract metrics list from settings if available."""
+         if settings is None:
+@@ -117,6 +135,7 @@ class CustomEvaluator(BaseEvaluator):
+             if isinstance(item, str):
+                 ids.append(item)
+                 continue
++
+             if isinstance(item, dict):
+                 for field in self._ID_FIELDS:
+                     if field in item:
+@@ -128,17 +147,104 @@ class CustomEvaluator(BaseEvaluator):
+                         f"Expected one of {', '.join(self._ID_FIELDS)}"
+                     )
+                 continue
+-            if hasattr(item, "id"):
+-                ids.append(str(getattr(item, "id")))
+-                continue
+ 
+-            raise ValueError(
+-                f"Unable to extract id from {label}[{index}] of type "
+-                f"{type(item).__name__}"
+-            )
++            for field in self._ID_FIELDS:
++                if hasattr(item, field):
++                    ids.append(str(getattr(item, field)))
++                    break
++            else:
++                raise ValueError(
++                    f"Unable to extract id from {label}[{index}] of type "
++                    f"{type(item).__name__}"
++                )
+ 
+         return ids
+ 
++    def _extract_ground_truth_sources(self, ground_truth: Optional[Any]) -> List[str]:
++        """Extract expected source file names from ground truth."""
++        if ground_truth is None:
++            return []
++        if isinstance(ground_truth, dict):
++            sources = ground_truth.get("sources", [])
++            if isinstance(sources, list):
++                return [
++                    self._normalize_source_name(source)
++                    for source in sources
++                    if source
++                ]
++        return []
++
++    def _extract_expected_metadata(self, ground_truth: Optional[Any]) -> Dict[str, str]:
++        """Extract expected metadata constraints from ground truth."""
++        if not isinstance(ground_truth, dict):
++            return {}
++
++        metadata = ground_truth.get("expected_metadata", {})
++        if not isinstance(metadata, dict):
++            return {}
++
++        return {
++            str(key): str(value)
++            for key, value in metadata.items()
++            if value is not None
++        }
++
++    def _metadata_tokens_from_metadata(self, metadata: Dict[str, Any]) -> List[str]:
++        """Build source tokens from known metadata fields."""
++        tokens: List[str] = []
++
++        for fields in [
++            ("source_type",),
++            ("source_type", "source_paper"),
++            ("source_type", "source_paper", "modality"),
++        ]:
++            if all(field in metadata and metadata[field] is not None for field in fields):
++                expected = {
++                    field: str(metadata[field])
++                    for field in fields
++                }
++                tokens.append(self._metadata_token(expected))
++
++        return tokens
++
++    def _metadata_token(self, metadata: Dict[str, str]) -> str:
++        """Create stable token for metadata-based source matching."""
++        parts = [
++            f"{key}={metadata[key]}"
++            for key in sorted(metadata)
++        ]
++        return "metadata:" + ";".join(parts)
++
++    def _extract_sources(self, items: Iterable[Any]) -> List[str]:
++        """Extract source file names from retrieved chunks."""
++        sources: List[str] = []
++        for item in items:
++            source = None
++
++            if isinstance(item, dict):
++                metadata = item.get("metadata", {}) or {}
++                source = item.get("source_path") or item.get("source")
++                if not source and isinstance(metadata, dict):
++                    source = metadata.get("source_path") or metadata.get("source")
++            else:
++                metadata = getattr(item, "metadata", {}) or {}
++                if isinstance(metadata, dict):
++                    source = metadata.get("source_path") or metadata.get("source")
++
++            if source:
++                sources.append(self._normalize_source_name(source))
++
++            if isinstance(metadata, dict):
++                sources.extend(self._metadata_tokens_from_metadata(metadata))
++
++        return sources
++
++    def _normalize_source_name(self, source: Any) -> str:
++        """Normalize absolute paths to stable file names."""
++        value = str(source).replace("\\", "/").rstrip("/")
++        return value.split("/")[-1]
++
++
+     def _compute_hit_rate(self, retrieved_ids: Sequence[str], ground_truth_ids: Sequence[str]) -> float:
+         """Compute hit rate (binary)."""
+         if not ground_truth_ids:
+diff --git a/src/observability/evaluation/eval_runner.py b/src/observability/evaluation/eval_runner.py
+index 769602c..2976ea4 100644
+--- a/src/observability/evaluation/eval_runner.py
++++ b/src/observability/evaluation/eval_runner.py
+@@ -38,6 +38,7 @@ class GoldenTestCase:
+     query: str
+     expected_chunk_ids: List[str] = field(default_factory=list)
+     expected_sources: List[str] = field(default_factory=list)
++    expected_metadata: Dict[str, Any] = field(default_factory=dict)
+     reference_answer: Optional[str] = None
+ 
+     @classmethod
+@@ -46,6 +47,7 @@ class GoldenTestCase:
+             query=data["query"],
+             expected_chunk_ids=data.get("expected_chunk_ids", []),
+             expected_sources=data.get("expected_sources", []),
++            expected_metadata=data.get("expected_metadata", {}),
+             reference_answer=data.get("reference_answer"),
+         )
+ 
+@@ -285,12 +287,20 @@ class EvalRunner:
+             answer = self._generate_answer(test_case.query, retrieved_chunks)
+         qr.generated_answer = answer
+ 
+-        # Step 3: Build ground truth
+-        ground_truth = (
+-            {"ids": test_case.expected_chunk_ids}
+-            if test_case.expected_chunk_ids
+-            else None
+-        )
++        # Step 3: Build ground truth.
++        # Source-level labels are more stable than chunk IDs when chunking rules change.
++        ground_truth = None
++        if (
++            test_case.expected_chunk_ids
++            or test_case.expected_sources
++            or test_case.expected_metadata
++        ):
++            ground_truth = {
++                "ids": test_case.expected_chunk_ids,
++                "sources": test_case.expected_sources,
++                "expected_metadata": test_case.expected_metadata,
++            }
++
+ 
+         # Step 4: Evaluate
+         try:
