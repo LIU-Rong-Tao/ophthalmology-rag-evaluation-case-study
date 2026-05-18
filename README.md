@@ -13,6 +13,7 @@
 - Reti-Pioneer 图表 caption 结果：`eval/results/reti_pioneer_figure_captions.md`
 - Vision caption 检索对比：`eval/results/vision_caption_retrieval_summary.md`
 - Vision caption hard 检索对比：`eval/results/vision_caption_hard_retrieval_summary.md`
+- Vision caption hard 生成对比：`eval/results/vision_caption_hard_generation_summary.md`
 - Vision caption 生成对比：`eval/results/vision_caption_generation_summary.md`
 - Markdown/TXT ingestion patch：`patches/text_loader_markdown_ingestion.patch`
 - 检索与生成消融图：`eval/results/figures/`
