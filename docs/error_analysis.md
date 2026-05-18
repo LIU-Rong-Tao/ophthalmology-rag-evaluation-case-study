@@ -43,3 +43,61 @@
 
 这个案例说明，OpenAI-compatible 多模态接口接入时，除了验证 raw payload 成功，还需要确认项目封装层是否完整传递 provider-specific 配置。
 
+
+## 3. Caption-Augmented Retrieval 评测中的工程问题
+
+在做 text-only RAG 与 caption-augmented RAG 对比时，我遇到了几个评测层面的 bad case。
+
+### 3.1 `expected_sources` 名称不匹配
+
+我最开始在 vision caption golden set 中写的是：
+
+`Reti-Pioneer figure captions`
+
+但 evaluator 实际根据 chunk metadata 里的 `source_path` 进行 source-level 判断。caption 文档真实来源是：
+
+`data/ophthalmology_caption_docs/reti_pioneer_figure_captions.md`
+
+因此增强 collection 实际已经召回了 caption 内容，但 `source_hit_rate` 仍然显示为 0。
+
+这个问题说明，source-level evaluator 的 `expected_sources` 必须和真实 metadata 对齐，否则会把正确召回误判成失败。
+
+### 3.2 精确 chunk id 匹配失败
+
+为了确认 caption 是否被召回，我尝试根据 caption Markdown 重新切分并计算 chunk id，再和 `retrieved_chunk_ids` 做精确匹配。结果发现前缀一致，但最后的 content hash 不一致：
+
+- 实际召回示例：`0d6b1c83_0000_45e47829`
+- 重新计算示例：`0d6b1c83_0000_576f84cb`
+
+原因是 ingestion pipeline 中 rule-based transform 可能会轻微改写 chunk 文本，导致 content hash 变化。因此，精确 chunk id 不适合用于这类派生文档的评测判断。
+
+更稳妥的做法是使用 source-level prefix 或 metadata 字段，例如 `source_type: figure_caption`、`source_paper: Reti-Pioneer`、`modality: vision_caption`。
+
+### 3.3 相对路径 hash 与绝对路径 hash 不一致
+
+我又尝试用 caption 文档路径计算 source prefix，但第一次使用的是相对路径：
+
+`data/ophthalmology_caption_docs/reti_pioneer_figure_captions.md`
+
+得到的 prefix 是：
+
+`6c378b7c_`
+
+而实际入库时 `TextLoader` 会把 `source_path` 解析成绝对路径：
+
+`/media/pc3048/8e92fcae-9dcb-48b7-818b-82c5f8ed050e/aidata/LiuRongTao/MODULAR-RAG-MCP-SERVER/data/ophthalmology_caption_docs/reti_pioneer_figure_captions.md`
+
+真实 prefix 是：
+
+`0d6b1c83_`
+
+因此第一次统计 `caption_source_hit@10` 仍然是 0。改成读取 `TextLoader().load(...).metadata["source_path"]` 后，统计结果正常。
+
+最终结果：
+
+| collection | caption_source_hit@10 |
+| --- | ---: |
+| text-only baseline | 0 / 8 = 0.0000 |
+| caption-augmented | 8 / 8 = 1.0000 |
+
+这个结果说明，caption-augmented collection 能稳定召回 caption source；同时也说明评测脚本要尽量使用 loader / pipeline 真实 metadata，而不是手写路径或手算 chunk id。
