@@ -1,0 +1,188 @@
+diff --git a/scripts/ingest.py b/scripts/ingest.py
+index 0d294db..9243590 100644
+--- a/scripts/ingest.py
++++ b/scripts/ingest.py
+@@ -68,7 +68,7 @@ def parse_args() -> argparse.Namespace:
+         "--path", "-p",
+         required=True,
+         help="Path to file or directory to ingest. "
+-             "If directory, processes all PDF files recursively."
++        "If directory, processes PDF, Markdown, and TXT files recursively."
+     )
+     
+     parser.add_argument(
+@@ -115,7 +115,7 @@ def discover_files(path: str, extensions: List[str] = None) -> List[Path]:
+         List of file paths to process
+     """
+     if extensions is None:
+-        extensions = ['.pdf']
++        extensions = ['.pdf', '.md', '.markdown', '.txt']
+     
+     path = Path(path)
+     
+@@ -188,10 +188,13 @@ def main() -> int:
+     """
+     args = parse_args()
+     
+-    # Setup logging level
++    # Setup logging level.
++    # Keep --verbose focused on project logs; third-party PDF parsers can emit huge DEBUG traces.
+     if args.verbose:
+         import logging
+-        logging.getLogger().setLevel(logging.DEBUG)
++        logging.getLogger("__main__").setLevel(logging.DEBUG)
++        logging.getLogger("src").setLevel(logging.DEBUG)
++
+     
+     print("[*] Modular RAG Ingestion Script")
+     print("=" * 60)
+diff --git a/src/ingestion/pipeline.py b/src/ingestion/pipeline.py
+index 51bc530..e22eb74 100644
+--- a/src/ingestion/pipeline.py
++++ b/src/ingestion/pipeline.py
+@@ -28,6 +28,7 @@ from src.observability.logger import get_logger
+ # Libs layer imports
+ from src.libs.loader.file_integrity import SQLiteIntegrityChecker
+ from src.libs.loader.pdf_loader import PdfLoader
++from src.libs.loader.text_loader import TextLoader
+ from src.libs.embedding.embedding_factory import EmbeddingFactory
+ from src.libs.vector_store.vector_store_factory import VectorStoreFactory
+ 
+@@ -141,12 +142,14 @@ class IngestionPipeline:
+         self.integrity_checker = SQLiteIntegrityChecker(db_path=str(resolve_path("data/db/ingestion_history.db")))
+         logger.info("  ✓ FileIntegrityChecker initialized")
+         
+-        # Stage 2: Loader
+-        self.loader = PdfLoader(
++        # Stage 2: Loaders
++        self.pdf_loader = PdfLoader(
+             extract_images=True,
+             image_storage_dir=str(resolve_path(f"data/images/{collection}"))
+         )
+-        logger.info("  ✓ PdfLoader initialized")
++        self.text_loader = TextLoader()
++        logger.info("  PdfLoader initialized")
++        logger.info("  TextLoader initialized")
+         
+         # Stage 3: Chunker
+         self.chunker = DocumentChunker(settings)
+@@ -255,7 +258,7 @@ class IngestionPipeline:
+             _notify("load", 2)
+             
+             _t0 = time.monotonic()
+-            document = self.loader.load(str(file_path))
++            document = self._select_loader(file_path).load(str(file_path))
+             _elapsed = (time.monotonic() - _t0) * 1000.0
+             
+             text_preview = document.text[:200].replace('\n', ' ') + "..." if len(document.text) > 200 else document.text
+@@ -551,6 +554,17 @@ class IngestionPipeline:
+                 stages=stages
+             )
+     
++    def _select_loader(self, file_path: Path):
++        suffix = file_path.suffix.lower()
++
++        if suffix == ".pdf":
++            return self.pdf_loader
++
++        if suffix in TextLoader.SUPPORTED_SUFFIXES:
++            return self.text_loader
++
++        raise ValueError(f"Unsupported file type for ingestion: {file_path.suffix}")
++    
+     def close(self) -> None:
+         """Clean up resources."""
+         self.image_storage.close()
+diff --git a/src/libs/loader/text_loader.py b/src/libs/loader/text_loader.py
+new file mode 100644
+index 0000000..4fe474c
+--- /dev/null
++++ b/src/libs/loader/text_loader.py
+@@ -0,0 +1,86 @@
++"""Plain text and Markdown loader."""
++
++from __future__ import annotations
++
++import hashlib
++from pathlib import Path
++from typing import Any
++
++import yaml
++
++from src.core.types import Document
++from src.libs.loader.base_loader import BaseLoader
++
++
++class TextLoader(BaseLoader):
++    """Load Markdown and TXT files into the standard Document format."""
++
++    SUPPORTED_SUFFIXES = {".md", ".markdown", ".txt"}
++
++    def load(self, file_path: str | Path) -> Document:
++        path = self._validate_file(file_path)
++        suffix = path.suffix.lower()
++
++        if suffix not in self.SUPPORTED_SUFFIXES:
++            raise ValueError(f"Unsupported text file type: {path.suffix}")
++
++        raw_text = path.read_text(encoding="utf-8")
++        extra_metadata, body = self._split_front_matter(raw_text)
++
++        doc_hash = self._compute_file_hash(path)
++        doc_type = "markdown" if suffix in {".md", ".markdown"} else "txt"
++
++        metadata: dict[str, Any] = {
++            "source_path": str(path),
++            "doc_type": doc_type,
++            "doc_hash": doc_hash,
++        }
++        metadata.update(extra_metadata)
++
++        title = metadata.get("title") or self._extract_title(body)
++        if title:
++            metadata["title"] = title
++
++        return Document(
++            id=f"doc_{doc_hash[:16]}",
++            text=body,
++            metadata=metadata,
++        )
++
++    def _split_front_matter(self, text: str) -> tuple[dict[str, Any], str]:
++        if not text.startswith("---\n"):
++            return {}, text
++
++        end = text.find("\n---\n", 4)
++        if end == -1:
++            return {}, text
++
++        try:
++            metadata = yaml.safe_load(text[4:end]) or {}
++        except Exception:
++            return {}, text
++
++        if not isinstance(metadata, dict):
++            return {}, text
++
++        return metadata, text[end + 5:]
++
++    def _compute_file_hash(self, path: Path) -> str:
++        sha256 = hashlib.sha256()
++        with path.open("rb") as f:
++            for chunk in iter(lambda: f.read(8192), b""):
++                sha256.update(chunk)
++        return sha256.hexdigest()
++
++    def _extract_title(self, text: str) -> str | None:
++        for line in text.splitlines()[:20]:
++            line = line.strip()
++            if line.startswith("# "):
++                return line[2:].strip()
++
++        for line in text.splitlines()[:10]:
++            line = line.strip()
++            if line:
++                return line
++
++        return None
+\ No newline at end of file
