@@ -15,7 +15,7 @@ Chunk IDs 是不稳定的。它们会在以下情况发生变化：
 因此，我使用 source-level evaluation 作为主要的 retrieval metric。
 
 > **PLACEHOLDER: Source-Level vs Chunk-Level Evaluation**  
-> 预留路径：`docs/assets/source_level_eval.png`
+![Source-level Evaluation](../../assets/figures/source_level_vs_chunk_id_evaluation_methods.png)
 
 ## 2. Retrieval Metrics
 
@@ -66,4 +66,4 @@ Hard vision-caption questions 的设计原则：
 - 包含 caption reliability 和 misreading 风险
 
 > **PLACEHOLDER: Evaluation Pipeline Diagram**  
-> 预留路径：`docs/assets/evaluation_pipeline.png`
+![Retrieval Pipeline](../../assets/figures/retrieval_pipeline_system_diagram.png)

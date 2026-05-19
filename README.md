@@ -32,13 +32,13 @@
 ## Visual Overview
 
 > **PLACEHOLDER: Architecture Overview**  
-> 预留路径：`docs/assets/architecture_overview.png`
+![Architecture Overview](assets/figures/medical_literature_rag_architecture_overview.png)
 
 > **PLACEHOLDER: Retrieval Flow**  
-> 预留路径：`docs/assets/retrieval_flow.png`
+![Retrieval Flow](assets/figures/retrieval_pipeline_system_diagram.png)
 
 > **PLACEHOLDER: Caption-Augmented RAG Flow**  
-> 预留路径：`docs/assets/caption_augmented_rag_flow.png`
+![Caption-Augmented RAG Flow](assets/figures/tech_infused_figure_caption_flowchart_diagram.png)
 
 ## Project Navigation
 
@@ -162,7 +162,7 @@ Hard vision caption generation 结果：
 ## Evaluation Methodology
 
 > **PLACEHOLDER: Source-Level Evaluation Diagram**  
-> 预留路径：`docs/assets/source_level_evaluation.png`
+![Source-level Evaluation](assets/figures/source_level_vs_chunk_id_evaluation_methods.png)
 
 评估聚焦于 source-level correctness，因为 chunk IDs 会随 chunk size、overlap 和 splitter rules 变化而不稳定。
 
@@ -181,10 +181,10 @@ Hard vision caption generation 结果：
 ## Hardcase Examples
 
 > **PLACEHOLDER: Hybrid Failure Visualization**  
-> 预留路径：`docs/assets/hybrid_retfound_badcase.png`
+![Hybrid Retrieval Badcase](assets/figures/hybrid_retrieval_badcase_analysis_dashboard.png)
 
 > **PLACEHOLDER: RAG Limitation Example**  
-> 预留路径：`docs/assets/source_coverage_limitation.png`
+![Source Coverage Limitation](assets/figures/source_coverage_limitation_in_text_only_retrieval.png)
 
 代表性 hard cases：
 

@@ -17,7 +17,7 @@
 ## 2. Pipeline
 
 > **PLACEHOLDER: Caption-Augmented RAG Pipeline**  
-> 预留路径：`docs/assets/caption_augmented_pipeline.png`
+![Caption-Augmented RAG Flow](../../assets/figures/tech_infused_figure_caption_flowchart_diagram.png)
 
 步骤：
 
@@ -64,7 +64,7 @@ Vision-generated captions 可能 misread dense medical figures。在本项目中
 - stricter chart-only golden questions
 
 > **PLACEHOLDER: Caption Retrieval Comparison Barplot**  
-> 预留路径：`docs/assets/caption_retrieval_barplot.png`
+![Caption Retrieval Comparison](../../assets/figures/caption_retrieval_barplot_comparison.png)
 
 > **PLACEHOLDER: Hard Generation Keyword Coverage Chart**  
-> 预留路径：`docs/assets/hard_generation_keyword_coverage.png`
+![Hard Generation Keyword Coverage](../../assets/figures/hard_generation_keyword_coverage_analysis.png)

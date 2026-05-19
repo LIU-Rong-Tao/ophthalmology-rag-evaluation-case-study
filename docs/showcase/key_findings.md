@@ -64,4 +64,4 @@ Hard generation keyword coverage：
 这是一个 positive signal，但 keyword coverage 不等于 factual correctness。下一步应进行 answer-level correctness review。
 
 > **PLACEHOLDER: Key Findings Summary Graphic**  
-> 预留路径：`docs/assets/key_findings_summary.png`
+![Caption Retrieval Comparison](../../assets/figures/caption_retrieval_barplot_comparison.png)
