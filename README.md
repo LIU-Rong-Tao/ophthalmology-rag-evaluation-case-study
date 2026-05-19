@@ -1,6 +1,9 @@
 # Ophthalmology RAG Evaluation Case Study
 
-一个面向眼科 AI 文献的 **evaluation-driven medical RAG research project**。
+> 本项目是基于 Modular RAG 框架完成的眼科 AI 文献 RAG 评测型 case study。
+> 它不是生产级医学问答系统，也不用于临床诊断或临床决策。
+> 项目重点是小规模眼科文献语料下的 source-level 评测设计、检索与生成消融实验、
+> hardcase 分析、图表 caption 增强探索，以及工程 badcase 复盘。
 
 本项目是一个面向眼科 AI 文献研究的 evaluation-driven RAG workflow，重点关注真实论文场景下的证据检索、回答质量评估、hardcase 分析与工程化复盘。
 
