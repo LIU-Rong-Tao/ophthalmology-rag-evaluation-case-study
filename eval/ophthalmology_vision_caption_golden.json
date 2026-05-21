@@ -1,0 +1,197 @@
+{
+  "test_cases": [
+    {
+      "id": "vision_caption_001",
+      "difficulty": "sanity",
+      "question": "Reti-Pioneer 图表中的 calibration curves 主要用来评估什么？这些图表涉及哪些疾病预测任务？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "calibration curve",
+        "predicted probability",
+        "observed proportion",
+        "Brier score",
+        "T2DM",
+        "hypertension",
+        "hyperlipidemia",
+        "gout",
+        "osteoporosis",
+        "thyroid disease"
+      ],
+      "why_caption_needed": "这些信息主要来自图表 caption，正文检索可能只能找到 Reti-Pioneer 的总体任务，难以覆盖 calibration curve 的图表细节。",
+      "query": "Reti-Pioneer 图表中的 calibration curves 主要用来评估什么？这些图表涉及哪些疾病预测任务？",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_caption_002",
+      "difficulty": "medium",
+      "question": "Reti-Pioneer 图表里的 normalized test benefit curves 想说明什么？它和 threshold probability 有什么关系？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "normalized test benefit",
+        "threshold probability",
+        "decision curve",
+        "clinical utility",
+        "model benefit"
+      ],
+      "why_caption_needed": "该问题要求解释图表中的 decision-curve 类信息，text-only baseline 不一定能召回这些视觉图表内容。",
+      "query": "Reti-Pioneer 图表里的 normalized test benefit curves 想说明什么？它和 threshold probability 有什么关系？",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_caption_003",
+      "difficulty": "medium",
+      "question": "从 Reti-Pioneer 图表 caption 看，resource-limited setting 和 high-resource setting 是如何被放在一起比较的？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "resource-limited setting",
+        "high-resource setting",
+        "external validation",
+        "model comparison",
+        "disease prediction"
+      ],
+      "why_caption_needed": "该问题考察图表中不同资源设置的对比方式，caption 比正文 chunk 更可能直接包含这些图例和面板信息。",
+      "query": "从 Reti-Pioneer 图表 caption 看，resource-limited setting 和 high-resource setting 是如何被放在一起比较的？",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_caption_004",
+      "difficulty": "medium",
+      "question": "Reti-Pioneer 图表 caption 中出现了哪些模型评估维度？请按校准、临床收益和分类性能三类概括。",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "calibration",
+        "Brier score",
+        "normalized test benefit",
+        "threshold probability",
+        "AUC",
+        "sensitivity",
+        "specificity"
+      ],
+      "why_caption_needed": "该问题需要把多个图表 caption 中的评估指标归纳到一起，适合测试 caption 入库后是否能支持图表级综合问题。",
+      "query": "Reti-Pioneer 图表 caption 中出现了哪些模型评估维度？请按校准、临床收益和分类性能三类概括。",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_caption_005",
+      "difficulty": "hard",
+      "question": "Reti-Pioneer 的图表如何展示多疾病检测任务的外部验证结果？请说明疾病任务、评估曲线和不同资源设置之间的关系。",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "external validation",
+        "multiple diseases",
+        "T2DM",
+        "hypertension",
+        "hyperlipidemia",
+        "gout",
+        "osteoporosis",
+        "thyroid disease",
+        "calibration curve",
+        "normalized test benefit",
+        "resource-limited",
+        "high-resource"
+      ],
+      "why_caption_needed": "该问题要求跨多个 caption 汇总疾病任务、曲线类型和实验设置，难度接近之前的多来源 generation hard case。",
+      "query": "Reti-Pioneer 的图表如何展示多疾病检测任务的外部验证结果？请说明疾病任务、评估曲线和不同资源设置之间的关系。",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_caption_006",
+      "difficulty": "hard",
+      "question": "如果只依赖 Reti-Pioneer 图表 caption 来回答图表含义，可能会有哪些误读风险？请结合 caption 内容说明。",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "manual review",
+        "semantic attribution",
+        "dense medical figures",
+        "caption risk",
+        "gene expression",
+        "disease mechanism"
+      ],
+      "why_caption_needed": "该问题不是单纯问论文内容，而是评估 caption 自身的可靠性和 bad case，能体现图表增强链路的边界。",
+      "query": "如果只依赖 Reti-Pioneer 图表 caption 来回答图表含义，可能会有哪些误读风险？请结合 caption 内容说明。",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_caption_007",
+      "difficulty": "medium",
+      "question": "Reti-Pioneer 图表 caption 中哪些内容能帮助回答模型是否具有临床实用性？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "clinical utility",
+        "normalized test benefit",
+        "threshold probability",
+        "calibration",
+        "external validation",
+        "decision curve"
+      ],
+      "why_caption_needed": "临床实用性不只看 AUC，还要看校准和决策曲线；这些图表相关线索在 caption 中更集中。",
+      "query": "Reti-Pioneer 图表 caption 中哪些内容能帮助回答模型是否具有临床实用性？",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_caption_008",
+      "difficulty": "sanity",
+      "question": "Reti-Pioneer 图表 caption 里反复出现的疾病预测任务有哪些？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "T2DM",
+        "gout",
+        "hypertension",
+        "hyperlipidemia",
+        "osteoporosis",
+        "thyroid disease"
+      ],
+      "why_caption_needed": "这是 sanity check，用来确认 caption 文档是否能被检索到，并能提供图表中反复出现的疾病任务。",
+      "query": "Reti-Pioneer 图表 caption 里反复出现的疾病预测任务有哪些？",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    }
+  ]
+}

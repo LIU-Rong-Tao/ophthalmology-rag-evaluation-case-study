@@ -1,0 +1,117 @@
+{
+  "test_cases": [
+    {
+      "id": "vision_hard_001",
+      "difficulty": "hard",
+      "query": "Reti-Pioneer 图表中 calibration curve 面板通常用哪两个轴来表达模型校准？这些曲线如何判断预测概率和实际观察比例是否一致？",
+      "question": "Reti-Pioneer 图表中 calibration curve 面板通常用哪两个轴来表达模型校准？这些曲线如何判断预测概率和实际观察比例是否一致？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "calibration curve",
+        "predicted probability",
+        "observed proportion",
+        "perfect calibration",
+        "Brier score"
+      ],
+      "why_caption_needed": "问题要求解释图表坐标轴和曲线含义，重点来自 caption 对 calibration curve 面板的描述。",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_hard_002",
+      "difficulty": "hard",
+      "query": "Reti-Pioneer 图表中的 normalized test benefit curve 是如何通过 threshold probability 展示临床决策收益的？",
+      "question": "Reti-Pioneer 图表中的 normalized test benefit curve 是如何通过 threshold probability 展示临床决策收益的？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "normalized test benefit",
+        "threshold probability",
+        "clinical utility",
+        "decision curve",
+        "net benefit"
+      ],
+      "why_caption_needed": "问题考察图表曲线类型和横纵轴关系，不是论文总体任务。",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_hard_003",
+      "difficulty": "hard",
+      "query": "从 Reti-Pioneer 图表 caption 看，同一疾病任务下 resource-limited setting、high-resource setting A 和 high-resource setting B 是作为什么图例或实验设置被比较的？",
+      "question": "从 Reti-Pioneer 图表 caption 看，同一疾病任务下 resource-limited setting、high-resource setting A 和 high-resource setting B 是作为什么图例或实验设置被比较的？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "resource-limited setting",
+        "high-resource setting A",
+        "high-resource setting B",
+        "legend",
+        "model comparison",
+        "external validation"
+      ],
+      "why_caption_needed": "问题要求识别图例/设置对比方式，caption source 比正文更直接。",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_hard_004",
+      "difficulty": "hard",
+      "query": "Reti-Pioneer 图表 caption 中哪些内容可以支持“模型不只看分类准确率，还关注校准和临床实用性”这个判断？",
+      "question": "Reti-Pioneer 图表 caption 中哪些内容可以支持“模型不只看分类准确率，还关注校准和临床实用性”这个判断？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "AUC",
+        "sensitivity",
+        "specificity",
+        "calibration",
+        "Brier score",
+        "normalized test benefit",
+        "clinical utility"
+      ],
+      "why_caption_needed": "问题要求从多个图表指标归纳评估维度，适合测试 caption-augmented RAG。",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    },
+    {
+      "id": "vision_hard_005",
+      "difficulty": "hard",
+      "query": "Reti-Pioneer 图表 caption 中有哪些地方提示我们不能把视觉模型生成的 caption 直接当成论文事实？",
+      "question": "Reti-Pioneer 图表 caption 中有哪些地方提示我们不能把视觉模型生成的 caption 直接当成论文事实？",
+      "expected_sources": [
+        "Reti-Pioneer figure captions"
+      ],
+      "expected_keywords": [
+        "人工复核",
+        "语义归因偏差",
+        "密集医学统计图",
+        "不能直接视为论文事实",
+        "误读风险"
+      ],
+      "why_caption_needed": "问题专门考察 caption 自身的质量边界和 bad case。",
+      "expected_metadata": {
+        "source_type": "figure_caption",
+        "source_paper": "Reti-Pioneer",
+        "modality": "vision_caption"
+      }
+    }
+  ]
+}
