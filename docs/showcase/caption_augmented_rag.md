@@ -40,7 +40,7 @@ Hard retrieval 结果：
 | text-only hard | 0.0000 | 0.0000 |
 | caption-augmented hard | 1.0000 | 0.2500 |
 
-这表明 caption-derived knowledge 可以被可靠地检索用于 chart-focused questions。
+这表明在当前小规模 pilot set 中，caption-derived knowledge 可以被稳定检索用于 chart-focused questions。
 
 ## 4. Generation Result
 

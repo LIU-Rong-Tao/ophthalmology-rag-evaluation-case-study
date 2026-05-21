@@ -1,9 +1,9 @@
 # Ophthalmology RAG Evaluation Case Study
 
-> 本项目是基于 Modular RAG 框架完成的眼科 AI 文献 RAG 评测型 case study。
+> 本项目是我围绕眼科 AI 文献场景搭建的垂类 RAG 评测型 case study。
+> 项目将医学文献摄取、领域化切分、Dense/BM25/Hybrid 检索、RAG 生成、
+> source-level evaluation、hardcase 分析和图表 caption 增强串成一个完整实验闭环。
 > 它不是生产级医学问答系统，也不用于临床诊断或临床决策。
-> 项目重点是小规模眼科文献语料下的 source-level 评测设计、检索与生成消融实验、
-> hardcase 分析、图表 caption 增强探索，以及工程 badcase 复盘。
 
 主要工作包括：
 
@@ -17,9 +17,10 @@
 - metadata-aware source evaluation
 （持续进行）
 
-> 本仓库不包含原始 PDF、向量数据库、API key 或上游完整源码，只保留评测设计、实验结果、脚本、patch 和案例分析。
+> 本仓库不包含原始 PDF、向量数据库、API key 或完整运行时源码，只保留评测设计、实验结果、脚本、patch 和案例分析。
 
-> MCP server、dashboard 和完整 RAG runtime 来自上游 Modular RAG MCP Server；本仓库只展示眼科场景评测产物、patch、脚本和 case study。
+> 说明：本仓库是面试展示用的 portfolio 版本，只保留眼科场景评测产物、patch、脚本、图表和 case study。
+> 完整 MCP server、dashboard 和基础 RAG runtime 已在本地项目中运行验证，但不在这个 portfolio 仓库中重复上传。
 
 ## TL;DR
 
@@ -43,46 +44,19 @@
 
 ## Project Navigation
 
-### Core Story
-
 - [Key Findings](docs/showcase/key_findings.md)
 - [Evaluation Methodology](docs/showcase/evaluation_methodology.md)
-- [Hardcase Examples](docs/showcase/hardcase_examples.md)
-- [Engineering Notes & Badcases](docs/showcase/engineering_notes_badcases.md)
-- [Caption-Augmented RAG](docs/showcase/caption_augmented_rag.md)
-- [Interview Pitch](docs/records/interview_pitch.md)
+- [Hardcase & Badcase Analysis](docs/showcase/hardcase_examples.md)
+- [Caption-Augmented RAG Pilot](docs/showcase/caption_augmented_rag.md)
+- [Engineering Notes](docs/showcase/engineering_notes_badcases.md)
 
-### Detailed Case Studies
-
-- [Overall Evaluation Summary](docs/records/ophthalmology_rag_eval_summary.md)
-- [Success Case](docs/records/success_case.md)
-- [Limitation Case](docs/records/limitation_case.md)
-- [Original Error Analysis](docs/records/error_analysis.md)
-- [Vision Caption Exploration](docs/records/vision_caption_exploration.md)
-
-### Results
-
-- [Retrieval Ablation](eval/results/retrieval_ablation_summary.md)
-- [Generation Top-k Ablation](eval/results/generation_topk_ablation_summary.md)
-- [Reti-Pioneer Figure Captions](eval/results/reti_pioneer_figure_captions.md)
-- [Vision Caption Retrieval Comparison](eval/results/vision_caption_retrieval_summary.md)
-- [Vision Caption Generation Comparison](eval/results/vision_caption_generation_summary.md)
-- [Vision Caption Hard Retrieval Comparison](eval/results/vision_caption_hard_retrieval_summary.md)
-- [Vision Caption Hard Generation Comparison](eval/results/vision_caption_hard_generation_summary.md)
-
-### Patches
-
-- [Source-level Evaluation](patches/source_level_evaluation.patch)
-- [Chinese Recursive Splitter](patches/chinese_recursive_splitter.patch)
-- [Logging Noise Suppression](patches/logging_noise_suppression.patch)
-- [Vision LLM Base URL Fix](patches/vision_llm_base_url.patch)
-- [Markdown/TXT Ingestion](patches/text_loader_markdown_ingestion.patch)
+完整结果文件、评测集和 patch 见：[Documentation Index](docs/README.md)。
 
 ## What I Built
 
 ### 1. 眼科文献领域适配
 
-我将通用 Modular RAG MCP Server 适配到眼科 AI 文献场景：
+我围绕眼科 AI 文献场景，搭建并扩展了一套垂类 RAG 评测工作流，把文档摄取、领域化切分、Dense/BM25/Hybrid 检索、RAG 生成、source-level evaluation、hardcase 分析和图表 caption 增强串成了一个可展示的完整实验闭环：
 
 - 10 篇 PDF 文档
 - 英文眼科 AI 论文 + 中文研究汇报

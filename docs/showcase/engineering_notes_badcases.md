@@ -20,7 +20,7 @@ Patch：
 
 ## 3. Vision LLM Base URL Bug
 
-项目自带的 `OpenAIVisionLLM` wrapper 接收了 `settings`，但没有读取 `settings.vision_llm.base_url`。这导致 DashScope-compatible vision calls 回退到 OpenAI 默认 endpoint。
+当前运行时中的 `OpenAIVisionLLM` wrapper 原实现接收了 `settings`，但没有读取 `settings.vision_llm.base_url`。这导致 DashScope-compatible vision calls 回退到 OpenAI 默认 endpoint。
 
 修复：
 

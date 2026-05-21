@@ -1,8 +1,8 @@
 # Documentation Index
 
-## Showcase Pages
+本目录只保留面试展示用的精简文档。原始过程记录不再单独维护，避免 README、records 和 results 多处重复。
 
-These pages are curated for internship / interview review.
+## Showcase Pages
 
 - [Key Findings](showcase/key_findings.md)
 - [Evaluation Methodology](showcase/evaluation_methodology.md)
@@ -10,13 +10,10 @@ These pages are curated for internship / interview review.
 - [Engineering Notes & Badcases](showcase/engineering_notes_badcases.md)
 - [Caption-Augmented RAG](showcase/caption_augmented_rag.md)
 
-## Original Records
+## Result Artifacts
 
-These pages keep the original experiment notes and detailed case studies.
+实验结果、评测集和 patch 见：
 
-- [Overall Evaluation Summary](records/ophthalmology_rag_eval_summary.md)
-- [Success Case](records/success_case.md)
-- [Limitation Case](records/limitation_case.md)
-- [Error Analysis](records/error_analysis.md)
-- [Vision Caption Exploration](records/vision_caption_exploration.md)
-- [Interview Pitch](records/interview_pitch.md)
+- `eval/`
+- `eval/results/`
+- `patches/`

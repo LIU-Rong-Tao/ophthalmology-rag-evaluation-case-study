@@ -11,6 +11,8 @@ Dense retrieval 可以将 Zhou 2023 RETFound 论文排到 top 位置，但 Hybri
 **RETFound Ranking Badcase**  
 ![Hybrid Retrieval Badcase](../../assets/figures/hybrid_retrieval_badcase_analysis_dashboard.png)
 
+> 该图用于解释 failure mode，具体指标以 `eval/results/` 表格和 case study 记录为准。
+
 ## 2. Source Coverage 限制 RAG Generation
 
 问题：

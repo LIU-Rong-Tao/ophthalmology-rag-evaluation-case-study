@@ -43,14 +43,14 @@
 
 ## 5. Caption-Augmented RAG 有助于图表检索
 
-在 hard vision caption set 上：
+在小规模 hard vision caption pilot set 上：
 
 | setting | source_hit_rate | source_mrr |
 | --- | ---: | ---: |
 | text-only hard | 0.0000 | 0.0000 |
 | caption-augmented hard | 1.0000 | 0.2500 |
 
-Caption-augmented collection 可以可靠地检索 figure-caption-derived knowledge。
+在当前小规模 pilot set 中，caption-augmented collection 可以稳定检索 figure-caption-derived knowledge。
 
 ## 6. Generation 有提升，但仍需人工复核
 
