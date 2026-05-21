@@ -5,7 +5,7 @@
 > 项目重点是小规模眼科文献语料下的 source-level 评测设计、检索与生成消融实验、
 > hardcase 分析、图表 caption 增强探索，以及工程 badcase 复盘。
 
-本项目是一个面向眼科 AI 文献研究的 evaluation-driven RAG workflow，重点关注真实论文场景下的证据检索、回答质量评估、hardcase 分析与工程化复盘。
+主要工作包括：
 
 - 领域化 ingestion 与中文医学文本适配
 - source-level golden set 设计
@@ -19,6 +19,8 @@
 
 > 本仓库不包含原始 PDF、向量数据库、API key 或上游完整源码，只保留评测设计、实验结果、脚本、patch 和案例分析。
 
+> MCP server、dashboard 和完整 RAG runtime 来自上游 Modular RAG MCP Server；本仓库只展示眼科场景评测产物、patch、脚本和 case study。
+
 ## TL;DR
 
 | Dimension | Result |
@@ -28,20 +30,16 @@
 | Best retrieval baseline | `dense`：source_hit@5 = 1.0000，source_mrr@5 = 0.7917 |
 | Best generation setting | `dense_top10`：source_coverage@k = 0.6833 |
 | Hybrid finding | 跨语言医学检索里，简单 Hybrid RRF 不一定优于 Dense |
-| Vision caption retrieval | hard set 上 source_hit_rate 从 0.0000 提升到 1.0000 |
-| Vision caption generation | hard set 关键词覆盖从 3.40 提升到 5.80 |
+| Caption pilot | 小规模 hard pilot 中，caption-derived source 召回从 0/5 提升到 5/5 |
+| Caption limitation | 关键词覆盖有提升，但不等于 answer-level factual correctness |
 | LLM ingestion finding | 长论文全量 chunk-level LLM refine 会触发大量 429，应改为 selective refinement |
 
 ## Visual Overview
 
-> **PLACEHOLDER: Architecture Overview**  
+**Architecture Overview**  
 ![Architecture Overview](assets/figures/medical_literature_rag_architecture_overview.png)
 
-> **PLACEHOLDER: Retrieval Flow**  
-![Retrieval Flow](assets/figures/retrieval_pipeline_system_diagram.png)
-
-> **PLACEHOLDER: Caption-Augmented RAG Flow**  
-![Caption-Augmented RAG Flow](assets/figures/tech_infused_figure_caption_flowchart_diagram.png)
+> 该图用于概览本项目评测过的流程与后续扩展点；具体定量结果以本文表格和 `eval/results/` 记录为准。
 
 ## Project Navigation
 
@@ -121,107 +119,56 @@
 
 ## Key Findings
 
-### Finding 1: Dense Retrieval 优于简单 Hybrid RRF
+1. **在当前跨语言 pilot hard set 上，Dense retrieval 表现最好。**  
+   许多问题用中文提出，但目标证据来自英文论文。相比 sparse keyword matching，dense retrieval 更适合这类跨语言语义匹配。
 
-在这个跨语言医学文献场景中，dense retrieval 表现最好。很多查询用中文写，但目标 evidence 在英文论文中。Sparse retrieval 速度更快，但更容易受到中文关键词噪声影响。
+2. **RAG 生成质量受 source coverage 限制。**  
+   当检索漏掉关键 evidence sources 时，生成答案仍可能很流畅，但内容会变窄、不完整，甚至偏向已召回的旁支材料。
 
-RETFound 相关查询暴露了一个具体 failure mode：sparse retrieval 将包含“基础模型/泛化/预训练”等通用词的中文 report chunks 排得过高，简单的 RRF fusion 把正确的英文 RETFound 论文挤出了 top-5。
+3. **全量 chunk-level LLM ingestion 不适合作为默认方案。**  
+   LLM-based refinement 在小文档上可行，但长论文会触发大量 429 fallback。更实际的设计是 selective refinement，配合 cache、retry/backoff 和异步任务。
 
-### Finding 2: RAG Quality 受 Source Coverage 限制
+4. **Caption augmentation 是小规模 pilot extension，不是完整多模态 benchmark。**  
+   Caption-derived chunks 在 5 条图表 hard pilot 问题上提升了目标来源召回，但 keyword coverage 只是轻量信号，仍需要 answer-level human review。
 
-对于“眼科多模态模型、报告生成模型和真实临床验证之间的关系”这类复杂问题，一个好的答案需要多个 evidence sources。当 retrieval 遗漏关键论文时，RAG 仍然能生成流畅答案，但框架会变得更窄、不完整。
-
-### Finding 3: 全量 LLM Ingestion Enhancement 不适合生产环境
-
-LLM-based chunk refinement 在小文档上工作正常，但长论文会快速触发 rate limit：
-
-| document | chunks | LLM refined | fallback |
-| --- | ---: | ---: | ---: |
-| 汇报6.pdf | 6 | 6 | 0 |
-| Reti-Pioneer paper | 126 | 10 | 116 |
-
-这提示更实际的生产设计：先做稳定的 rule-based ingestion，然后对 selective chunks 做异步 LLM refinement，配合 caching 和 retry/backoff。
-
-### Finding 4: Caption-Augmented RAG 改善了图表相关检索
-
-我从 Reti-Pioneer 论文中提取 images，筛选 8 张大图，用 Vision LLM 生成中文 captions，并将 captions 作为 Markdown 文档入库。
-
-Hard vision caption retrieval 结果：
-
-| setting | source_hit_rate | source_mrr |
-| --- | ---: | ---: |
-| text-only hard | 0.0000 | 0.0000 |
-| caption-augmented hard | 1.0000 | 0.2500 |
-
-Hard vision caption generation 结果：
-
-| setting | avg_keyword_hits_per_answer |
-| --- | ---: |
-| text-only hard | 3.40 |
-| caption-augmented hard | 5.80 |
-
-检索收益明显；生成收益为正，但仍需 answer-level human review 来验证正确性。
+更多细节见：[Key Findings](docs/showcase/key_findings.md)、[Caption-Augmented RAG](docs/showcase/caption_augmented_rag.md)、[Hardcase Examples](docs/showcase/hardcase_examples.md)。
 
 ## Evaluation Methodology
 
-> **PLACEHOLDER: Source-Level Evaluation Diagram**  
-![Source-level Evaluation](assets/figures/source_level_vs_chunk_id_evaluation_methods.png)
+本项目采用 source-level evaluation 作为主评测方式，避免固定 chunk-id 随 chunk size、overlap、splitter 和 transform 变化而漂移。
 
-评估聚焦于 source-level correctness，因为 chunk IDs 会随 chunk size、overlap 和 splitter rules 变化而不稳定。
+核心指标包括：
 
-对于普通论文，expected sources 标识目标论文或报告。对于 caption-derived knowledge，我增加了 metadata-aware source matching：
+- `source_hit@k`：是否召回至少一个期望来源
+- `source_mrr@k`：期望来源首次出现的位置
+- `source_coverage@k`：多来源问题中覆盖了多少期望来源
+- `keyword coverage`：仅用于生成结果的轻量信息覆盖观察，不代表事实正确性
 
-```json
-{
-  "expected_metadata": {
-    "source_type": "figure_caption",
-    "source_paper": "Reti-Pioneer",
-    "modality": "vision_caption"
-  }
-}
-```
+对于 caption-derived knowledge，我进一步加入 metadata-aware source matching，例如 `source_type=figure_caption`、`source_paper=Reti-Pioneer`、`modality=vision_caption`。
 
-## Hardcase Examples
+更多细节见：[Evaluation Methodology](docs/showcase/evaluation_methodology.md)。
 
-> **PLACEHOLDER: Hybrid Failure Visualization**  
-![Hybrid Retrieval Badcase](assets/figures/hybrid_retrieval_badcase_analysis_dashboard.png)
+## Hardcase & Engineering Notes
 
-> **PLACEHOLDER: RAG Limitation Example**  
-![Source Coverage Limitation](assets/figures/source_coverage_limitation_in_text_only_retrieval.png)
+本项目主动保留 hardcase / badcase，而不是只展示成功样例：
 
-代表性 hard cases：
+- 简单 Hybrid RRF 在跨语言医学问题上可能被 sparse 关键词噪声干扰
+- 检索缺失关键 evidence sources 时，RAG 生成会变窄或不完整
+- Vision caption 能补充图表检索，但可能误读密集医学统计图
+- 全量 LLM refine 会触发 API rate limit，更适合改为 selective / cached / async refinement
+- Vision wrapper 的 `base_url` 配置问题通过逐层 debug 定位并修复
 
-- 在跨语言医学搜索中，Hybrid RRF 可能不如 Dense
-- RAG 答案看起来完整，但可能缺失关键 evidence sources
-- Vision captions 有助于检索，但密集医学图表仍可能被语义误读
-- LLM ingestion enhancement 应该是 selective 和 asynchronous 的，而不是全量同步处理所有 chunks
+更多细节见：[Hardcase Examples](docs/showcase/hardcase_examples.md)、[Engineering Notes & Badcases](docs/showcase/engineering_notes_badcases.md)。
 
-## Engineering Notes
+## Exploratory Extension: Caption-Augmented RAG
 
-### Markdown/TXT Ingestion
+图表增强部分是一个小规模 exploratory extension，而不是完整多模态 RAG benchmark。
 
-为了将 figure captions 作为 first-class knowledge sources 入库，我扩展了 ingestion pipeline 以支持 `.md` 和 `.txt` 文件。这避免了将 captions 转回 PDF，并保留了 metadata 如：
+我从 Reti-Pioneer 中筛选 8 张大图生成 caption，并将 caption Markdown 作为派生知识源入库。在 5 条图表 hard pilot 问题上，caption-derived source 召回从 `0/5` 提升到 `5/5`；生成关键词覆盖从 `3.40` 提升到 `5.80`。
 
-- `source_type: figure_caption`
-- `source_paper: Reti-Pioneer`
-- `modality: vision_caption`
-- `derived_from: extracted_figures`
+这个结果只说明 caption 入库对图表相关 evidence retrieval 有正向信号，不代表回答已经达到医学事实正确。后续需要人工 review、chart-specific labels 和更大的 image/table-only golden set。
 
-### Vision Wrapper Fix
-
-项目自带的 `OpenAIVisionLLM` wrapper 最初忽略了 `vision_llm.base_url`，导致 DashScope-compatible vision calls 回退到 `https://api.openai.com/v1`。我修复了 wrapper 以读取 `settings.vision_llm.base_url`，并验证了 wrapper-level tiny-image captioning。
-
-### Future Rerank Ablation
-
-下一个干净的 ablation 实验：
-
-| setting | recall | rerank | final top-k |
-| --- | --- | --- | --- |
-| dense_top10 | dense top10 | none | 10 |
-| dense50_rerank10 | dense top50 | qwen3-rerank | 10 |
-| hybrid50_rerank10 | hybrid top50 | qwen3-rerank | 10 |
-
-关键原则：固定 `text-embedding-v4` 用于 recall，然后将 rerank 作为独立变量添加。
+更多细节见：[Caption-Augmented RAG](docs/showcase/caption_augmented_rag.md)。
 
 ## Repository Boundary
 
@@ -247,7 +194,7 @@ Hard vision caption generation 结果：
 
 ## Next Steps
 
-- 生成上述列出的 placeholder diagrams
+- 扩展 caption hard set，并加入 answer-level human review
 - 添加 qwen3-rerank 作为独立的 rerank ablation
 - 为 vision-caption generation 添加更严格的 answer-level correctness labels
 - 添加小规模 metadata filtering 实验（按 paper type / modality / language）

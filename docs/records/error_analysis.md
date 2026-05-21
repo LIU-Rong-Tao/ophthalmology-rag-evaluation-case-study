@@ -85,7 +85,7 @@
 
 而实际入库时 `TextLoader` 会把 `source_path` 解析成绝对路径：
 
-`/media/pc3048/8e92fcae-9dcb-48b7-818b-82c5f8ed050e/aidata/LiuRongTao/MODULAR-RAG-MCP-SERVER/data/ophthalmology_caption_docs/reti_pioneer_figure_captions.md`
+`<PROJECT_ROOT>/data/ophthalmology_caption_docs/reti_pioneer_figure_captions.md`
 
 真实 prefix 是：
 

@@ -73,12 +73,12 @@ RETFound 相关问题说明 hybrid search 并不是天然最优。Dense retrieva
 
 ### 9.1 检索消融实验
 
-![Retrieval Ablation](../eval/results/figures/retrieval_ablation.svg)
+![Retrieval Ablation](../../eval/results/figures/retrieval_ablation.svg)
 
 该图对比了 dense、hybrid 和 sparse 三种检索模式的来源命中率、MRR 和平均查询耗时。结果显示，在中文问题检索英文眼科论文的场景下，dense retrieval 的检索质量最高，而 sparse retrieval 虽然最快，但更容易受到关键词噪声影响。Hybrid RRF 并没有稳定超过 dense，说明融合策略仍需要进一步调权或 rerank。
 
 ### 9.2 生成消融实验
 
-![Generation Ablation](../eval/results/figures/generation_ablation.svg)
+![Generation Ablation](../../eval/results/figures/generation_ablation.svg)
 
 该图对比了不同 top-k 和检索模式下的生成增强效果。dense_top10 在 source_coverage 和 citation_coverage 上表现最好，同时总耗时仍可接受，因此被选为当前 demo 的默认生成配置。
