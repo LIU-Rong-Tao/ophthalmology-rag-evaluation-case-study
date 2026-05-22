@@ -1,0 +1,17 @@
+{
+  "required": [
+    "id",
+    "source_dataset",
+    "split",
+    "task_type",
+    "question",
+    "evidence_spans",
+    "answer",
+    "claims",
+    "safety_expectation",
+    "metadata"
+  ],
+  "valid_splits": ["train_seed", "eval_heldout", "dev_eval", "preference_seed"],
+  "valid_support_types": ["direct", "inferential", "partial", "insufficient", "weak_supervision", "human_verified"],
+  "note": "PubMedQA converted samples are SFT seed / training-ready samples. Claim links are weak supervision unless manually verified."
+}

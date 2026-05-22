@@ -1,0 +1,3009 @@
+{
+  "input": "eval/align/pubmedqa_sft_seed.sample.jsonl",
+  "count": 500,
+  "avg_citation_coverage": 1.0,
+  "avg_unsupported_claim_rate": 0.0,
+  "avg_abstain_accuracy": null,
+  "records": [
+    {
+      "id": "pubmedqa_21645374",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16418930",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9488747",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17208539",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10808977",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23831910",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26037986",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26852225",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17113061",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10966337",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25432938",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18847643",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18239988",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25957366",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24866606",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26578404",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11729377",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17096624",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22694248",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22990761",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19394934",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11481599",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21669959",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23806388",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17919952",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10966943",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23690198",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17940352",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20537205",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_28707539",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_7482275",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24183388",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9645785",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26298839",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24153338",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18534072",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_8847047",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10575390",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20084845",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15703931",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18269157",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25489696",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14599616",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22537902",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19054501",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16432652",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19504993",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20571467",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24237112",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21402341",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20082356",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26606599",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11340218",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25481573",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25277731",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25475395",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23177368",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17179167",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14612308",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27491658",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19822586",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27643961",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23539689",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22453060",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22227642",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12380309",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22186742",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22188074",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27989969",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18607272",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18235194",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18049437",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15597845",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24996865",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23361217",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17489316",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14518645",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20337202",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26449554",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26215326",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_29112560",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24315783",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9381529",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_8985020",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26708803",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22427593",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11570976",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19757704",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27592038",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27044366",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9792366",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17562682",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15800018",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14978612",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18843057",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23076787",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9199905",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23999452",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22534881",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24785562",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22564465",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27456836",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27287237",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14697414",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26686513",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15530261",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24160268",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21823940",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27217036",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18565233",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19694846",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27184293",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19459018",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22042121",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16100194",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25480629",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17453263",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18322741",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19106867",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25691513",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11035130",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19409117",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21900017",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16968876",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18540901",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27448572",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17621202",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25987398",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16816043",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12920330",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23497210",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21952349",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21712147",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25311479",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20602784",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12836106",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25588461",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19299238",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22706226",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12913878",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16769333",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22497340",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10223070",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_8566975",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25186850",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9427037",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_28359277",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11411430",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16956164",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15687156",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_28127977",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16809243",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17276182",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21123461",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22428608",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27858166",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23791827",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18243752",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17279467",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22758782",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15223725",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19482903",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25752912",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21946341",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16428354",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19302863",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24245816",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24666444",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19913785",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_1571683",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15631914",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11970923",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20121683",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27281318",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12846929",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26505821",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25156467",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22023714",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16046584",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16155169",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19398929",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_28143468",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9483814",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22720085",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24748473",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15588538",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22211919",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24433626",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9542484",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17008699",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23228527",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15489384",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17444776",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_8422202",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23794696",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20549895",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18714572",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_2224269",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_8910148",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23899611",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10548670",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26907557",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20871246",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22876568",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15280782",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17502203",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26370095",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10354335",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26452334",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15065192",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25488308",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22449464",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26222664",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22617083",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9767546",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21214884",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23321509",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16827975",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18179827",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14872327",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24809662",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26485091",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12805495",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19925761",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11458136",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20382292",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22236315",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17051586",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25007420",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26556589",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12612531",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26194560",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11079675",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21459725",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21172844",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24946973",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17335331",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27581329",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11867487",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12765819",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24507422",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9854965",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21756515",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19131405",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18568290",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18667100",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9191526",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10605400",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17601244",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20608141",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25986020",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15670262",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22900881",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11413427",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9602458",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24434052",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17598882",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21190419",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16403186",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11888773",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25940336",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24014276",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18359123",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26113007",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11838307",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18222909",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24747511",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12407608",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19836806",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17076091",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21801416",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25819796",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18496363",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14551704",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23234860",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22532370",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22656647",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22683044",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11566686",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15502995",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24019262",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22867778",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23348330",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21658267",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_28177278",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18403944",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20363841",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19664156",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23356465",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22972546",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21850494",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26778755",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20187289",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27615402",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20297950",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23735520",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10759659",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25592625",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12595848",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20064872",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23588461",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18019905",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25859857",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26418796",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22825590",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18832500",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18955431",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9550200",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10135926",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11296674",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24139705",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16253970",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14745753",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27078715",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15939071",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11926574",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18594195",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25614468",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19653482",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11380492",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16296668",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19520213",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14992556",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19931500",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18378554",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17306983",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26879871",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24336869",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16962519",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17704864",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18307476",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15151701",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26399179",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21889895",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21569408",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23025584",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23587089",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15539888",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23096188",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21881325",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19542542",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16872243",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15141797",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25394614",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10381996",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26134053",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25274085",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12098035",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12963175",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21865668",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16510651",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24901580",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19468282",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21481154",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21398266",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25371231",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23252468",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22440363",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12068831",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20530150",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21618245",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26085176",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18158048",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21256734",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_28027677",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17595200",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26548832",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15879722",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27554179",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15381614",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22012962",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18948835",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18435678",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19268855",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12238307",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20684175",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27216167",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19852337",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22680064",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25417760",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22365295",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15125825",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24652474",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24947183",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25779009",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17105833",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27338535",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27690714",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21346501",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24964725",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18708308",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11759976",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16319544",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20674150",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25336163",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25887165",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12947068",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16776337",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22668852",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25251991",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_7497757",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_8262881",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11943048",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20306735",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23414523",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11882828",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24939676",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17076590",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21745056",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22979954",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22955530",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18507507",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17323047",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24851767",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12006913",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_8245806",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17691856",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15222284",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25501465",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16414216",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19155657",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27050489",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24977765",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19130332",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23949294",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18926458",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10749257",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17610439",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26859535",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25446909",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17220021",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10158597",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21198823",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17259061",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18375490",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24142776",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18388848",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22251324",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27896825",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22117569",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25787073",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_14631523",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26717802",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23810330",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19027440",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24446763",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9444542",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23389866",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19142546",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9107172",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9363244",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10411439",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21166749",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27818079",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25982163",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20353735",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24630333",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27096199",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_22519710",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12040336",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15918864",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23601294",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21361755",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_9003088",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23337545",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10490564",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23375036",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11555508",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16778275",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27136599",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_27050505",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18403945",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11149643",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26200172",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18783922",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12684740",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25155638",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_26820719",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_21080127",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_18086459",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11978239",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10798511",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_15477551",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19327500",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24614789",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_23283159",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_16465002",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24191126",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_25218577",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_20488985",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11567820",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_19100463",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_12769830",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10331115",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_17483607",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_28056802",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_11776681",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_24922528",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_8200238",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    },
+    {
+      "id": "pubmedqa_10593212",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": null
+    }
+  ]
+}

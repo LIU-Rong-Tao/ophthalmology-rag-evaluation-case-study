@@ -1,0 +1,15 @@
+{
+  "input": "eval/golden_v2/oph_smoke_eval_seed.json",
+  "count": 1,
+  "avg_citation_coverage": 1.0,
+  "avg_unsupported_claim_rate": 0.0,
+  "avg_abstain_accuracy": 1.0,
+  "records": [
+    {
+      "id": "oph_smoke_001",
+      "citation_coverage": 1.0,
+      "unsupported_claim_rate": 0.0,
+      "abstain_accuracy": 1.0
+    }
+  ]
+}
