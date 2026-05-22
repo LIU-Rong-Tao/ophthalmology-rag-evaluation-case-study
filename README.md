@@ -1,23 +1,22 @@
 # Ophthalmology RAG Evaluation Case Study
 
 > 本项目是我围绕眼科 AI 文献场景搭建的垂类 RAG 评测型 case study。
-> 项目将医学文献摄取、领域化切分、Dense/BM25/Hybrid 检索、RAG 生成、
-> source-level evaluation、hardcase 分析和图表 caption 增强串成一个完整实验闭环。
+> 项目将医学文献摄取、领域化切分、Dense/BM25/Hybrid/Rerank 检索、RAG 生成、
+> source-level evaluation、hardcase 分析和图表 caption 增强串成一个可复现的 RAG 评测闭环。
 > 它不是生产级医学问答系统，也不用于临床诊断或临床决策。
 
 主要工作包括：
 
 - 领域化 ingestion 与中文医学文本适配
 - source-level golden set 设计
-- Dense / Sparse / Hybrid 检索消融
+- Dense / Sparse / Hybrid / Rerank 检索消融
 - Vanilla LLM vs RAG generation 对比
-- 成功案例、hard case 和工程 bad case 分析
+- hardcase / badcase 与工程复盘
 - Vision caption / 图表增强 RAG 探索
 - Markdown/TXT 派生知识源入库
 - metadata-aware source evaluation
-（持续进行）
 
-> 本仓库不包含原始 PDF、向量数据库、API key 或完整运行时源码，只保留评测设计、实验结果、脚本、patch 和案例分析。
+> 本仓库不包含原始 PDF、向量数据库、API key 或完整上游 runtime，只保留评测设计、实验结果、脚本、patch 和案例分析。
 
 > 说明：本仓库是面试展示用的 portfolio 版本，只保留眼科场景评测产物、patch、脚本、图表和 case study。
 > 完整 MCP server、dashboard 和基础 RAG runtime 已在本地项目中运行验证，但不在这个 portfolio 仓库中重复上传。
@@ -31,6 +30,7 @@
 | Best retrieval baseline | `dense`：source_hit@5 = 1.0000，source_mrr@5 = 0.7917 |
 | Best generation setting | `dense_top10`：source_coverage@k = 0.6833 |
 | Hybrid finding | 跨语言医学检索里，简单 Hybrid RRF 不一定优于 Dense |
+| Rerank finding | `dense50_llm_top10` 提升 source_mrr@10，但平均延迟约 36.26s，更适合作为离线 evidence utility rerank |
 | Caption pilot | 小规模 hard pilot 中，caption-derived source 召回从 0/5 提升到 5/5 |
 | Caption limitation | 关键词覆盖有提升，但不等于 answer-level factual correctness |
 | LLM ingestion finding | 长论文全量 chunk-level LLM refine 会触发大量 429，应改为 selective refinement |
@@ -49,6 +49,8 @@
 - [Hardcase & Badcase Analysis](docs/showcase/hardcase_examples.md)
 - [Caption-Augmented RAG Pilot](docs/showcase/caption_augmented_rag.md)
 - [Engineering Notes](docs/showcase/engineering_notes_badcases.md)
+- [Rerank Ablation](eval/results/rerank_ablation_summary.md)
+- [MedRAG-Align v0 Data Pipeline](eval/results/medrag_align_v0_data_pipeline.md)
 
 完整结果文件、评测集和 patch 见：[Documentation Index](docs/README.md)。
 
@@ -56,7 +58,7 @@
 
 ### 1. 眼科文献领域适配
 
-我围绕眼科 AI 文献场景，搭建并扩展了一套垂类 RAG 评测工作流，把文档摄取、领域化切分、Dense/BM25/Hybrid 检索、RAG 生成、source-level evaluation、hardcase 分析和图表 caption 增强串成了一个可展示的完整实验闭环：
+我围绕眼科 AI 文献场景，搭建并扩展了一套垂类 RAG 评测工作流，把文档摄取、领域化切分、Dense/BM25/Hybrid 检索、RAG 生成、source-level evaluation、hardcase 分析和图表 caption 增强串成了一个可展示的实验闭环：
 
 - 10 篇 PDF 文档
 - 英文眼科 AI 论文 + 中文研究汇报
@@ -89,7 +91,7 @@
 | dense_top10 | 1.0000 | 0.6833 | 0.6417 | 6737.67 |
 | hybrid_top10 | 1.0000 | 0.5861 | 0.5861 | 7332.00 |
 
-当前 generation demo 配置：`dense_top10`。
+Current evaluated generation setting: `dense_top10`.
 
 ## Key Findings
 
@@ -99,40 +101,28 @@
 2. **RAG 生成质量受 source coverage 限制。**  
    当检索漏掉关键 evidence sources 时，生成答案仍可能很流畅，但内容会变窄、不完整，甚至偏向已召回的旁支材料。
 
-3. **全量 chunk-level LLM ingestion 不适合作为默认方案。**  
+3. **LLM rerank 能改善排序，但延迟成本较高。**  
+   `dense50_llm_top10` 将 source_mrr@10 从 `0.7917` 提升到 `0.9583`，但平均查询耗时约 `36.26s`，更适合作为离线 evidence utility rerank 实验。
+
+4. **全量 chunk-level LLM ingestion 不适合作为默认方案。**  
    LLM-based refinement 在小文档上可行，但长论文会触发大量 429 fallback。更实际的设计是 selective refinement，配合 cache、retry/backoff 和异步任务。
 
-4. **Caption augmentation 是小规模 pilot extension，不是完整多模态 benchmark。**  
+5. **Caption augmentation 是小规模 pilot extension，不是完整多模态 benchmark。**  
    Caption-derived chunks 在 5 条图表 hard pilot 问题上提升了目标来源召回，但 keyword coverage 只是轻量信号，仍需要 answer-level human review。
-
-更多细节见：[Key Findings](docs/showcase/key_findings.md)、[Caption-Augmented RAG](docs/showcase/caption_augmented_rag.md)、[Hardcase Examples](docs/showcase/hardcase_examples.md)。
 
 ## Evaluation Methodology
 
 本项目采用 source-level evaluation 作为主评测方式，避免固定 chunk-id 随 chunk size、overlap、splitter 和 transform 变化而漂移。
 
-核心指标包括：
-
-- `source_hit@k`：是否召回至少一个期望来源
-- `source_mrr@k`：期望来源首次出现的位置
-- `source_coverage@k`：多来源问题中覆盖了多少期望来源
-- `keyword coverage`：仅用于生成结果的轻量信息覆盖观察，不代表事实正确性
-
-对于 caption-derived knowledge，我进一步加入 metadata-aware source matching，例如 `source_type=figure_caption`、`source_paper=Reti-Pioneer`、`modality=vision_caption`。
+核心指标包括 `source_hit@k`、`source_mrr@k`、`source_coverage@k` 和轻量 `keyword coverage`。对于 caption-derived knowledge，评测中进一步加入 metadata-aware source matching。
 
 更多细节见：[Evaluation Methodology](docs/showcase/evaluation_methodology.md)。
 
 ## Hardcase & Engineering Notes
 
-本项目主动保留 hardcase / badcase，而不是只展示成功样例：
+本项目主动保留 hardcase / badcase，而不是只展示成功样例，包括 Hybrid RRF 噪声、检索缺失、LLM rerank timeout、Vision caption 误读和 LLM refine rate limit 等问题。
 
-- 简单 Hybrid RRF 在跨语言医学问题上可能被 sparse 关键词噪声干扰
-- 检索缺失关键 evidence sources 时，RAG 生成会变窄或不完整
-- Vision caption 能补充图表检索，但可能误读密集医学统计图
-- 全量 LLM refine 会触发 API rate limit，更适合改为 selective / cached / async refinement
-- Vision wrapper 的 `base_url` 配置问题通过逐层 debug 定位并修复
-
-更多细节见：[Hardcase Examples](docs/showcase/hardcase_examples.md)、[Engineering Notes & Badcases](docs/showcase/engineering_notes_badcases.md)。
+更多细节见：[Hardcase Examples](docs/showcase/hardcase_examples.md)、[Engineering Notes & Badcases](docs/showcase/engineering_notes_badcases.md)、[Rerank Ablation](eval/results/rerank_ablation_summary.md)。
 
 ## Exploratory Extension: Caption-Augmented RAG
 
@@ -144,6 +134,16 @@
 
 更多细节见：[Caption-Augmented RAG](docs/showcase/caption_augmented_rag.md)。
 
+## Exploratory Extension: MedRAG-Align v0
+
+MedRAG-Align v0 是在现有眼科 RAG 评测闭环基础上，向 medical LLM evidence alignment / post-training data construction 方向扩展的早期数据流水线。
+
+当前已完成 Golden v2 schema、PubMedQA evidence-grounded SFT seed 转换、30 对弱监督 preference pair seed，以及 citation / unsupported claim / abstain 等 alignment metrics v0。
+
+该部分目前只代表数据结构和弱监督 seed 构造已跑通，不代表已完成医学模型训练，也不代表医生验证标注。
+
+更多细节见：[MedRAG-Align v0 Data Pipeline](eval/results/medrag_align_v0_data_pipeline.md)。
+
 ## Repository Boundary
 
 本仓库是一个 portfolio case study，不是 production medical diagnosis system。
@@ -154,7 +154,7 @@
 - extracted paper images
 - vector databases
 - API keys
-- full upstream project source
+- full upstream runtime
 
 包含：
 
@@ -169,7 +169,8 @@
 ## Next Steps
 
 - 扩展 caption hard set，并加入 answer-level human review
-- 添加 qwen3-rerank 作为独立的 rerank ablation
+- 尝试本地 cross-encoder reranker 或 DashScope / Qwen 专用 rerank API，降低 LLM rerank 延迟和 timeout 风险
 - 为 vision-caption generation 添加更严格的 answer-level correctness labels
 - 添加小规模 metadata filtering 实验（按 paper type / modality / language）
 - 扩展 hard image/table-only golden set，包含 manually verified chart facts
+- 在 MedRAG-Align 方向继续补充 MedQA / MedMCQA adapter、小规模 QLoRA SFT 和 DPO/ORPO 验证
