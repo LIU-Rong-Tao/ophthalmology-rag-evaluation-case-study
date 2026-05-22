@@ -37,7 +37,7 @@
 
 ## Visual Overview
 
-**Architecture Overview**  
+**Architecture Overview**
 ![Architecture Overview](assets/figures/medical_literature_rag_architecture_overview.png)
 
 > 该图用于概览本项目评测过的流程与后续扩展点；具体定量结果以本文表格和 `eval/results/` 记录为准。
@@ -95,19 +95,19 @@ Current evaluated generation setting: `dense_top10`.
 
 ## Key Findings
 
-1. **在当前跨语言 pilot hard set 上，Dense retrieval 表现最好。**  
+1. **在当前跨语言 pilot hard set 上，Dense retrieval 表现最好。**
    许多问题用中文提出，但目标证据来自英文论文。相比 sparse keyword matching，dense retrieval 更适合这类跨语言语义匹配。
 
-2. **RAG 生成质量受 source coverage 限制。**  
+2. **RAG 生成质量受 source coverage 限制。**
    当检索漏掉关键 evidence sources 时，生成答案仍可能很流畅，但内容会变窄、不完整，甚至偏向已召回的旁支材料。
 
-3. **LLM rerank 能改善排序，但延迟成本较高。**  
+3. **LLM rerank 能改善排序，但延迟成本较高。**
    `dense50_llm_top10` 将 source_mrr@10 从 `0.7917` 提升到 `0.9583`，但平均查询耗时约 `36.26s`，更适合作为离线 evidence utility rerank 实验。
 
-4. **全量 chunk-level LLM ingestion 不适合作为默认方案。**  
+4. **全量 chunk-level LLM ingestion 不适合作为默认方案。**
    LLM-based refinement 在小文档上可行，但长论文会触发大量 429 fallback。更实际的设计是 selective refinement，配合 cache、retry/backoff 和异步任务。
 
-5. **Caption augmentation 是小规模 pilot extension，不是完整多模态 benchmark。**  
+5. **Caption augmentation 是小规模 pilot extension，不是完整多模态 benchmark。**
    Caption-derived chunks 在 5 条图表 hard pilot 问题上提升了目标来源召回，但 keyword coverage 只是轻量信号，仍需要 answer-level human review。
 
 ## Evaluation Methodology
