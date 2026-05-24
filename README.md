@@ -17,7 +17,6 @@
 - metadata-aware source evaluation
 
 > 本仓库不包含原始 PDF、向量数据库、API key 或完整上游 runtime，只保留评测设计、实验结果、脚本、patch 和案例分析。
-
 > 说明：本仓库是面试展示用的 portfolio 版本，只保留眼科场景评测产物、patch、脚本、图表和 case study。
 > 完整 MCP server、dashboard 和基础 RAG runtime 已在本地项目中运行验证，但不在这个 portfolio 仓库中重复上传。
 
@@ -50,7 +49,8 @@
 - [Caption-Augmented RAG Pilot](docs/showcase/caption_augmented_rag.md)
 - [Engineering Notes](docs/showcase/engineering_notes_badcases.md)
 - [Rerank Ablation](eval/results/rerank_ablation_summary.md)
-- [MedRAG-Align v0 Data Pipeline](eval/results/medrag_align_v0_data_pipeline.md)
+- [Evaluation Reranker 接入测试](eval/results/evaluation_reranker_smoke_test.md)
+- [Evidence Alignment Metrics v0 Appendix](eval/results/medrag_align_v0_data_pipeline.md)
 
 完整结果文件、评测集和 patch 见：[Documentation Index](docs/README.md)。
 
@@ -134,15 +134,15 @@ Current evaluated generation setting: `dense_top10`.
 
 更多细节见：[Caption-Augmented RAG](docs/showcase/caption_augmented_rag.md)。
 
-## Exploratory Extension: MedRAG-Align v0
+## Appendix: Evidence Alignment Metrics v0
 
-MedRAG-Align v0 是在现有眼科 RAG 评测闭环基础上，向 medical LLM evidence alignment / post-training data construction 方向扩展的早期数据流水线。
+该部分记录 evidence grounding / citation / abstain 指标的早期探索，用于后续 Agentic Evidence RAG 的 reward 与 evaluation 设计参考。
 
 当前已完成 Golden v2 schema、PubMedQA evidence-grounded SFT seed 转换、30 对弱监督 preference pair seed，以及 citation / unsupported claim / abstain 等 alignment metrics v0。
 
-该部分目前只代表数据结构和弱监督 seed 构造已跑通，不代表已完成医学模型训练，也不代表医生验证标注。
+该部分不代表已经完成医学模型训练，也不代表医生验证的 claim-level evidence annotation。后续它将作为 reward / evaluation appendix，而不是单独的 MedRAG-Align 训练主线。
 
-更多细节见：[MedRAG-Align v0 Data Pipeline](eval/results/medrag_align_v0_data_pipeline.md)。
+更多细节见：[Evidence Alignment Metrics v0](eval/results/medrag_align_v0_data_pipeline.md)。
 
 ## Repository Boundary
 
@@ -168,9 +168,8 @@ MedRAG-Align v0 是在现有眼科 RAG 评测闭环基础上，向 medical LLM e
 
 ## Next Steps
 
-- 扩展 caption hard set，并加入 answer-level human review
-- 尝试本地 cross-encoder reranker 或 DashScope / Qwen 专用 rerank API，降低 LLM rerank 延迟和 timeout 风险
-- 为 vision-caption generation 添加更严格的 answer-level correctness labels
-- 添加小规模 metadata filtering 实验（按 paper type / modality / language）
-- 扩展 hard image/table-only golden set，包含 manually verified chart facts
-- 在 MedRAG-Align 方向继续补充 MedQA / MedMCQA adapter、小规模 QLoRA SFT 和 DPO/ORPO 验证
+后续工作会沿着 Agentic Evidence RAG 方向推进：先把 rerank、multi-query 和 abstain 抽象成可选择的 search policies，再在公开 multi-hop QA benchmark 上训练轻量级 RL Search Policy Controller。
+
+主实验将关注 reward、evidence coverage、search cost 和 action distribution 等训练曲线；现有眼科 hard cases 将作为医学证据检索的 domain transfer showcase，用来观察公开 QA 上学到的 search-cost tradeoff 是否能迁移到垂直医学场景。
+
+PubMedQA / BioASQ 暂时只作为 biomedical sanity check，不作为第一阶段主训练集。
