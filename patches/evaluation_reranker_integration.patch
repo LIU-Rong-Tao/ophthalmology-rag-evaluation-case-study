@@ -1,0 +1,185 @@
+diff --git a/scripts/evaluate.py b/scripts/evaluate.py
+index fbeb74a..dc26d44 100644
+--- a/scripts/evaluate.py
++++ b/scripts/evaluate.py
+@@ -13,6 +13,9 @@ Usage:
+     # Use a specific collection
+     python scripts/evaluate.py --collection technical_docs
+ 
++    # Enable reranking during evaluation
++    python scripts/evaluate.py --use-rerank
++
+     # JSON output
+     python scripts/evaluate.py --json
+ 
+@@ -32,6 +35,7 @@ from pathlib import Path
+ # Set UTF-8 encoding for Windows console
+ if sys.platform == "win32":
+     import io
++
+     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
+     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8")
+ 
+@@ -50,6 +54,11 @@ def parse_args() -> argparse.Namespace:
+         default="tests/fixtures/golden_test_set.json",
+         help="Path to golden test set JSON file (default: tests/fixtures/golden_test_set.json)",
+     )
++    parser.add_argument(
++        "--config",
++        default=str(PROJECT_ROOT / "config" / "settings.yaml"),
++        help="Path to configuration file (default: config/settings.yaml)",
++    )
+     parser.add_argument(
+         "--collection",
+         default=None,
+@@ -61,6 +70,12 @@ def parse_args() -> argparse.Namespace:
+         default=10,
+         help="Number of chunks to retrieve per query (default: 10).",
+     )
++    parser.add_argument(
++        "--retrieval-mode",
++        choices=["hybrid", "dense", "sparse"],
++        default="hybrid",
++        help="Retrieval mode for ablation: hybrid, dense, or sparse.",
++    )
+     parser.add_argument(
+         "--json",
+         action="store_true",
+@@ -71,19 +86,28 @@ def parse_args() -> argparse.Namespace:
+         action="store_true",
+         help="Skip retrieval (evaluate with mock chunks for testing).",
+     )
++    parser.add_argument(
++        "--use-rerank",
++        action="store_true",
++        help="Enable reranking during evaluation.",
++    )
+     return parser.parse_args()
+ 
+ 
+ def main() -> int:
+     """Main entry point."""
+     args = parse_args()
++    status_stream = sys.stderr if args.json else sys.stdout
++
++    def status_print(*values, **kwargs):
++        print(*values, file=status_stream, **kwargs)
+ 
+     try:
+         from src.core.settings import load_settings
+         from src.libs.evaluator.evaluator_factory import EvaluatorFactory
+         from src.observability.evaluation.eval_runner import EvalRunner
+ 
+-        settings = load_settings()
++        settings = load_settings(args.config)
+     except Exception as exc:
+         print(f"❌ Configuration error: {exc}", file=sys.stderr)
+         return 2
+@@ -96,14 +120,17 @@ def main() -> int:
+         print(f"❌ Failed to create evaluator: {exc}", file=sys.stderr)
+         return 2
+ 
+-    # Create HybridSearch (unless --no-search)
++    # Create HybridSearch and optional reranker unless --no-search is set.
+     hybrid_search = None
++    reranker = None
++
+     if not args.no_search:
+         try:
+             from src.core.query_engine.query_processor import QueryProcessor
+             from src.core.query_engine.hybrid_search import create_hybrid_search
+             from src.core.query_engine.dense_retriever import create_dense_retriever
+             from src.core.query_engine.sparse_retriever import create_sparse_retriever
++            from src.core.query_engine.reranker import create_core_reranker
+             from src.ingestion.storage.bm25_indexer import BM25Indexer
+             from src.libs.embedding.embedding_factory import EmbeddingFactory
+             from src.libs.vector_store.vector_store_factory import VectorStoreFactory
+@@ -111,7 +138,8 @@ def main() -> int:
+             collection = args.collection or "default"
+ 
+             vector_store = VectorStoreFactory.create(
+-                settings, collection_name=collection,
++                settings,
++                collection_name=collection,
+             )
+             embedding_client = EmbeddingFactory.create(settings)
+             dense_retriever = create_dense_retriever(
+@@ -134,21 +162,54 @@ def main() -> int:
+                 dense_retriever=dense_retriever,
+                 sparse_retriever=sparse_retriever,
+             )
+-            print(f"✅ HybridSearch initialized for collection: {collection}")
++
++            if args.retrieval_mode == "dense":
++                hybrid_search.config.enable_sparse = False
++            elif args.retrieval_mode == "sparse":
++                hybrid_search.config.enable_dense = False
++
++            status_print(
++                f"✅ HybridSearch initialized for collection: {collection} "
++                f"(mode={args.retrieval_mode})"
++            )
++
++            if args.use_rerank:
++                try:
++                    reranker = create_core_reranker(settings=settings)
++                    if getattr(reranker, "is_enabled", False):
++                        status_print(f"✅ Reranker initialized: {reranker.reranker_type}")
++                    else:
++                        status_print(
++                            "⚠️  Reranker requested but disabled by settings; "
++                            "evaluation will run without rerank."
++                        )
++                        reranker = None
++                except Exception as exc:
++                    status_print(
++                        f"⚠️  Failed to initialize reranker; "
++                        f"running without rerank: {exc}"
++                    )
++                    reranker = None
++
+         except Exception as exc:
+-            print(f"⚠️  Failed to initialize search (running without retrieval): {exc}")
++            status_print(f"⚠️  Failed to initialize search (running without retrieval): {exc}")
++
++    elif args.use_rerank:
++        status_print("⚠️  --use-rerank ignored because --no-search is set.")
+ 
+     # Create and run EvalRunner
+     runner = EvalRunner(
+         settings=settings,
+         hybrid_search=hybrid_search,
+         evaluator=evaluator,
++        reranker=reranker,
+     )
+ 
+     try:
+-        print(f"\n🔍 Running evaluation with {evaluator_name}...")
+-        print(f"📄 Test set: {args.test_set}")
+-        print(f"🔢 Top-K: {args.top_k}\n")
++        status_print(f"\n🔍 Running evaluation with {evaluator_name}...")
++        status_print(f"📄 Test set: {args.test_set}")
++        status_print(f"🔢 Top-K: {args.top_k}")
++        status_print(f"🔁 Rerank: {'enabled' if reranker is not None else 'disabled'}\n")
+ 
+         report = runner.run(
+             test_set_path=args.test_set,
+@@ -161,7 +222,10 @@ def main() -> int:
+ 
+     # Output results
+     if args.json:
+-        print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False))
++        try:
++            print(json.dumps(report.to_dict(), indent=2, ensure_ascii=False))
++        except BrokenPipeError:
++            return 0
+     else:
+         _print_report(report)
+ 
+@@ -210,4 +274,4 @@ def _print_report(report) -> None:
+ 
+ 
+ if __name__ == "__main__":
+-    sys.exit(main())
++    sys.exit(main())
+\ No newline at end of file
