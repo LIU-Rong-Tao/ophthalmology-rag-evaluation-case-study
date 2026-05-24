@@ -51,6 +51,7 @@ LLM：`qwen3.5-plus`
 
 ## 后续计划
 
-1. 引入本地 cross-encoder reranker，降低延迟并避免 LLM timeout。
-2. 尝试 DashScope / Qwen 专用 rerank API，比较成本与稳定性。
-3. 在 generation ablation 中测试 rerank 后 top10 对 citation coverage 和 unsupported claim 控制的影响。
+1. 将 `dense_top10_none`、`dense50_llm_top10`、`multi_query_dense`、`multi_query_rerank` 和 `abstain` 抽象成 fixed search policies。
+2. 在 HotpotQA subset 上做 fixed policy ablation，验证 `evidence_coverage - search_cost` reward 是否能区分策略。
+3. 将 rerank 作为 high-cost optional search action，供后续 RL Search Policy Controller 学习选择。
+4. 本地 cross-encoder / Qwen rerank API 可作为降低 rerank action 成本的工程优化方向。

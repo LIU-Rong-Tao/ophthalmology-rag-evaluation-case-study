@@ -49,7 +49,7 @@ PubMedQA 字段被映射到 Golden v2 schema：
 
 ## 下一步
 
-1. 将眼科 smoke eval 从 1 条扩展到 10-20 条。
-2. 添加 MedQA / MedMCQA instruction-format adapter。
-3. 回到原眼科 RAG pipeline，继续 rerank ablation。
-4. 在数据版本和 baseline evaluation 记录清楚后，再启动 QLoRA SFT。
+1. 保留 citation coverage / unsupported claim / abstain metrics，作为后续 Agentic Evidence RAG 的 reward / evaluation appendix。
+2. 将 PubMedQA seed 用作 biomedical sanity check，而不是第一阶段主训练集。
+3. 暂不启动 QLoRA / DPO / ORPO；如后续需要，仅作为 LLM-level future work。
+4. 优先推进 HotpotQA fixed policy ablation 与 RL Search Policy Controller。
