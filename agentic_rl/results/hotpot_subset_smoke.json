@@ -1,0 +1,44 @@
+[
+  {
+    "id": "smoke_1",
+    "question": "Which magazine was started first, Arthur's Magazine or First for Women?",
+    "answer": "",
+    "supporting_facts": [
+      [
+        "Arthur's Magazine",
+        0
+      ],
+      [
+        "First for Women",
+        0
+      ]
+    ],
+    "gold_titles": [
+      "Arthur's Magazine",
+      "First for Women"
+    ],
+    "context_titles": [],
+    "source_dataset": "HotpotQA"
+  },
+  {
+    "id": "smoke_2",
+    "question": "The Oberoi family is part of a hotel company that has a head office in what city?",
+    "answer": "",
+    "supporting_facts": [
+      [
+        "The Oberoi Group",
+        0
+      ],
+      [
+        "Delhi",
+        0
+      ]
+    ],
+    "gold_titles": [
+      "The Oberoi Group",
+      "Delhi"
+    ],
+    "context_titles": [],
+    "source_dataset": "HotpotQA"
+  }
+]
