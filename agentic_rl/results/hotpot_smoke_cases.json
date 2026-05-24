@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "smoke_1",
+    "question": "Which magazine was started first, Arthur's Magazine or First for Women?",
+    "supporting_facts": [
+      ["Arthur's Magazine", 0],
+      ["First for Women", 0]
+    ]
+  },
+  {
+    "_id": "smoke_2",
+    "question": "The Oberoi family is part of a hotel company that has a head office in what city?",
+    "supporting_facts": [
+      ["The Oberoi Group", 0],
+      ["Delhi", 0]
+    ]
+  }
+]

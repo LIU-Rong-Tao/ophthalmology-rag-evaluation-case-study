@@ -1,0 +1,11 @@
+case_id,question,gold_source_count,policy,evidence_coverage,search_cost,reward
+smoke_1,"Which magazine was started first, Arthur's Magazine or First for Women?",2,dense_top10,0.5000,1.00,0.4000
+smoke_1,"Which magazine was started first, Arthur's Magazine or First for Women?",2,dense50_rerank10,1.0000,3.00,0.7000
+smoke_1,"Which magazine was started first, Arthur's Magazine or First for Women?",2,multi_query_dense_top10,0.5000,4.00,0.1000
+smoke_1,"Which magazine was started first, Arthur's Magazine or First for Women?",2,multi_query_rerank10,1.0000,5.00,0.5000
+smoke_1,"Which magazine was started first, Arthur's Magazine or First for Women?",2,abstain,0.0000,0.50,-0.0500
+smoke_2,The Oberoi family is part of a hotel company that has a head office in what city?,2,dense_top10,0.5000,1.00,0.4000
+smoke_2,The Oberoi family is part of a hotel company that has a head office in what city?,2,dense50_rerank10,1.0000,3.00,0.7000
+smoke_2,The Oberoi family is part of a hotel company that has a head office in what city?,2,multi_query_dense_top10,0.5000,4.00,0.1000
+smoke_2,The Oberoi family is part of a hotel company that has a head office in what city?,2,multi_query_rerank10,1.0000,5.00,0.5000
+smoke_2,The Oberoi family is part of a hotel company that has a head office in what city?,2,abstain,0.0000,0.50,-0.0500
