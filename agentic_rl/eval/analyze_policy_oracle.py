@@ -39,6 +39,14 @@ def to_float(row: dict[str, str], key: str) -> float:
 def classify_case(best_policy: str, best_coverage: float, gap_to_second: float) -> str:
     if best_policy == "abstain":
         return "abstain_best"
+    if best_policy == "bm25_top2":
+        return "easy_low_budget"
+    if best_policy == "bm25_top5":
+        return "medium_budget"
+    if best_policy == "bm25_top10":
+        return "hard_high_budget"
+    if best_policy == "multi_query_bm25_top5":
+        return "query_expansion_helpful"
     if best_coverage >= 1.0 and best_policy in {"dense_top10", "lexical_top10"}:
         return "easy_cheap_sufficient"
     if best_policy in {"dense50_rerank10", "lexical_top50_rerank10"}:
