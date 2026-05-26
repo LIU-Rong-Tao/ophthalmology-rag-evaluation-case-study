@@ -78,6 +78,10 @@ Details: docs/showcase/caption_augmented_rag.md
 
 这部分是实验性扩展，不是主项目结论。它研究的问题是：不同 query 是否需要不同 retrieval budget。
 
+![Adaptive Retrieval Budget Appendix](assets/figures/adaptive_retrieval_budget_appendix.png)
+
+该图说明：BM25 top2/top5/top10 在 oracle 分析中都有最优 case，说明 budget action space 存在真实 tradeoff；但 rule controller v1 的 reward 仍略低于 fixed bm25_top5，因此该部分只作为 exploratory appendix，而不声称已经提升 RAG 检索效果。
+
 BM25 full-context oracle 分布：
 
 - bm25_top5: 41/100
