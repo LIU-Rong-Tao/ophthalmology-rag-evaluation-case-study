@@ -16,7 +16,6 @@
 | Caption pilot | Failure-case driven extension：针对图表信息缺失问题，将 vision-caption 作为补充 evidence source，在 5 条 hard pilot 中验证其可召回性，source recall 达到 100% |
 | Adaptive retrieval appendix | BM25 budget oracle 出现 top2/top5/top10 tradeoff；v1 controller 接近但未超过 strongest fixed policy |
 
-完整实验文件见 [Documentation Index](docs/README.md)。
 
 ## Visual Overview
 
@@ -114,6 +113,8 @@ Details: [BM25 Budget Controller Summary](agentic_rl/results/bm25_budget_control
 不包含原始 PDF、extracted paper images、vector databases、API keys 或完整 upstream runtime。
 
 包含 evaluation design、scripts、result summaries、case studies、patches、figures 和 engineering notes。
+
+更多文档索引见 [Documentation Index](docs/README.md)。
 
 ## Next Steps
 
