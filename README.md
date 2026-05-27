@@ -13,7 +13,7 @@
 | Retrieval | Dense 在跨语言医学 hard set 上最佳：source_hit@5 = 1.0000，source_mrr@5 = 0.7917 |
 | Generation | dense_top10 达到最高 source_coverage@k = 0.6833 |
 | Rerank | dense50_llm_top10 将 source_mrr@10 提升到 0.9583，但延迟约 36.26s/query |
-| Caption pilot | 图表 hard pilot 中 caption-derived source 召回从 0/5 提升到 5/5 |
+| Caption pilot | 图表 hard pilot 中 caption-derived source 召回从 0% 提升到 100% |
 | Adaptive retrieval appendix | BM25 budget oracle 出现 top2/top5/top10 tradeoff；v1 controller 接近但未超过 strongest fixed policy |
 
 完整实验文件见 [Documentation Index](docs/README.md)。
@@ -78,7 +78,7 @@ Details: eval/results/rerank_ablation_summary.md
 
 图表增强部分是 small pilot，不是完整多模态 benchmark。
 
-caption-derived source 在图表 hard pilot 问题上召回从 0/5 提升到 5/5，生成关键词覆盖从 3.40 提升到 5.80。该结果只说明 caption 入库对图表相关 evidence retrieval 有正向信号，不代表 answer-level factual correctness 已经可靠。
+caption-derived source 在图表 hard pilot 问题上召回从 0% 提升到 100%，生成关键词覆盖从 3.40 提升到 5.80。该结果只说明 caption 入库对图表相关 evidence retrieval 有正向信号，不代表 answer-level factual correctness 已经可靠。
 
 Details: docs/showcase/caption_augmented_rag.md
 
