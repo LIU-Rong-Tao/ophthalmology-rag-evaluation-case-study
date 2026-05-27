@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520">
+<rect width="100%" height="100%" fill="white"/>
+<text x="490.0" y="28" text-anchor="middle" font-size="20" font-family="Arial" font-weight="700">Retrieval Ablation: Quality vs Latency</text>
+<line x1="70" y1="55" x2="70" y2="430" stroke="#333"/>
+<line x1="70" y1="430" x2="890" y2="430" stroke="#333"/>
+<line x1="890" y1="55" x2="890" y2="430" stroke="#333"/>
+<line x1="70" y1="430" x2="890" y2="430" stroke="#eee"/>
+<text x="60" y="434" text-anchor="end" font-size="12" font-family="Arial">0.00</text>
+<line x1="70" y1="336.25" x2="890" y2="336.25" stroke="#eee"/>
+<text x="60" y="340.25" text-anchor="end" font-size="12" font-family="Arial">0.25</text>
+<line x1="70" y1="242.5" x2="890" y2="242.5" stroke="#eee"/>
+<text x="60" y="246.5" text-anchor="end" font-size="12" font-family="Arial">0.50</text>
+<line x1="70" y1="148.75" x2="890" y2="148.75" stroke="#eee"/>
+<text x="60" y="152.75" text-anchor="end" font-size="12" font-family="Arial">0.75</text>
+<line x1="70" y1="55.0" x2="890" y2="55.0" stroke="#eee"/>
+<text x="60" y="59.0" text-anchor="end" font-size="12" font-family="Arial">1.00</text>
+<text x="900" y="434" font-size="12" font-family="Arial">0</text>
+<text x="900" y="340.25" font-size="12" font-family="Arial">202</text>
+<text x="900" y="246.5" font-size="12" font-family="Arial">404</text>
+<text x="900" y="152.75" font-size="12" font-family="Arial">607</text>
+<text x="900" y="59.0" font-size="12" font-family="Arial">809</text>
+<text x="206.66666666666666" y="482" text-anchor="middle" font-size="13" font-family="Arial">hybrid</text>
+<rect x="160.66666666666666" y="86.23750000000001" width="37.72" height="343.7625" fill="#4C78A8"/>
+<text x="179.52666666666664" y="81.23750000000001" text-anchor="middle" font-size="11" font-family="Arial">0.92</text>
+<rect x="206.66666666666666" y="142.48749999999995" width="37.72" height="287.51250000000005" fill="#59A14F"/>
+<text x="225.52666666666664" y="137.48749999999995" text-anchor="middle" font-size="11" font-family="Arial">0.77</text>
+<text x="480.0" y="482" text-anchor="middle" font-size="13" font-family="Arial">dense</text>
+<rect x="434.0" y="55.0" width="37.72" height="375.0" fill="#4C78A8"/>
+<text x="452.86" y="50.0" text-anchor="middle" font-size="11" font-family="Arial">1.00</text>
+<rect x="480.0" y="133.1125" width="37.72" height="296.8875" fill="#59A14F"/>
+<text x="498.86" y="128.1125" text-anchor="middle" font-size="11" font-family="Arial">0.79</text>
+<text x="753.3333333333333" y="482" text-anchor="middle" font-size="13" font-family="Arial">sparse</text>
+<rect x="707.3333333333333" y="117.51249999999999" width="37.72" height="312.4875" fill="#4C78A8"/>
+<text x="726.1933333333333" y="112.51249999999999" text-anchor="middle" font-size="11" font-family="Arial">0.83</text>
+<rect x="753.3333333333333" y="169.59999999999997" width="37.72" height="260.40000000000003" fill="#59A14F"/>
+<text x="772.1933333333333" y="164.59999999999997" text-anchor="middle" font-size="11" font-family="Arial">0.69</text>
+<polyline points="206.66666666666666,103.91304347826082 480.0,257.58274344009357 753.3333333333333,326.24909796940744" fill="none" stroke="#D62728" stroke-width="3"/>
+<circle cx="206.66666666666666" cy="103.91304347826082" r="4" fill="#D62728"/>
+<text x="206.66666666666666" y="93.91304347826082" text-anchor="middle" font-size="11" font-family="Arial" fill="#D62728">703ms</text>
+<circle cx="480.0" cy="257.58274344009357" r="4" fill="#D62728"/>
+<text x="480.0" y="247.58274344009357" text-anchor="middle" font-size="11" font-family="Arial" fill="#D62728">372ms</text>
+<circle cx="753.3333333333333" cy="326.24909796940744" r="4" fill="#D62728"/>
+<text x="753.3333333333333" y="316.24909796940744" text-anchor="middle" font-size="11" font-family="Arial" fill="#D62728">224ms</text>
+<rect x="70" y="490" width="12" height="12" fill="#4C78A8"/>
+<text x="88" y="500" font-size="12" font-family="Arial">source_hit@5</text>
+<rect x="245" y="490" width="12" height="12" fill="#59A14F"/>
+<text x="263" y="500" font-size="12" font-family="Arial">source_mrr@5</text>
+<line x1="420" y1="496" x2="438" y2="496" stroke="#D62728" stroke-width="3"/>
+<text x="445" y="500" font-size="12" font-family="Arial">latency</text>
+</svg>

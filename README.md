@@ -32,6 +32,10 @@
 
 ### Retrieval
 
+![Retrieval Ablation](assets/figures/retrieval_ablation.svg)
+
+该图展示 Dense / Hybrid / Sparse 检索在 source_hit@5、source_mrr@5 和 latency 上的对比。
+
 Dense retrieval 是当前跨语言医学 hard set 上最稳定的 baseline：
 
 - dense: source_hit@5 = 1.0000, source_mrr@5 = 0.7917
@@ -43,6 +47,10 @@ Dense retrieval 是当前跨语言医学 hard set 上最稳定的 baseline：
 Details: eval/results/retrieval_ablation_summary.md
 
 ### Generation
+
+![Generation Ablation](assets/figures/generation_ablation.svg)
+
+该图展示不同 generation setting 在 source_hit@k、source_coverage@k、citation_coverage 和 latency 上的对比。
 
 | setting | source_hit@k | source_coverage@k | citation_coverage |
 | --- | ---: | ---: | ---: |
@@ -78,9 +86,9 @@ Details: docs/showcase/caption_augmented_rag.md
 
 这部分是实验性扩展，不是主项目结论。它研究的问题是：不同 query 是否需要不同 retrieval budget。
 
-![Adaptive Retrieval Budget Appendix](assets/figures/adaptive_retrieval_budget_appendix.png)
+![Adaptive Retrieval Budget](assets/figures/adaptive_retrieval_budget_appendix.svg)
 
-该图说明：BM25 top2/top5/top10 在 oracle 分析中都有最优 case，说明 budget action space 存在真实 tradeoff；但 rule controller v1 的 reward 仍略低于 fixed bm25_top5，因此该部分只作为 exploratory appendix，而不声称已经提升 RAG 检索效果。
+该图展示 BM25 top2/top5/top10 与 rule controller v1 在 coverage、reward 和 search cost 上的对比。它说明 action space 有 tradeoff，但 controller v1 尚未超过 strongest fixed policy。
 
 BM25 full-context oracle 分布：
 
