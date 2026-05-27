@@ -13,10 +13,15 @@
 - [MedRAG-Align v0 Data Pipeline](../eval/results/medrag_align_v0_data_pipeline.md)
 - [MedRAG-Align Data Schema](data_schema.md)
 
+## Agentic / Adaptive Retrieval Appendix
+
+- [BM25 Budget Controller Summary](../agentic_rl/results/bm25_budget_controller_summary.md)
+
 ## Result Artifacts
 
 实验结果、评测集和 patch 见：
 
-- `eval/`
-- `eval/results/`
-- `patches/`
+- [`eval/`](../eval/)
+- [`eval/results/`](../eval/results/)
+- [`patches/`](../patches/)
+- [`agentic_rl/`](../agentic_rl/)
